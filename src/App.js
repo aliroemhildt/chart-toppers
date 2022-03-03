@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { getSongs } from './apiCalls';
 
 class App extends React.Component {
