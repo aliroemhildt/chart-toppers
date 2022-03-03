@@ -1,25 +1,30 @@
 import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { getSongs } from './apiCalls';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      src: ''
+    }
+  }
+
+  componentDidMount = () => {
+    getSongs()
+      .then(data => this.setState({src: data[2021].song1.image_url}))
+  }  
+
+  render = () => {
+    return (
+      <div className="App">
+        <header className="App-header">
+          {this.state.src && <img src={this.state.src} />}
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
