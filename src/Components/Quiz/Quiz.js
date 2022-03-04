@@ -8,8 +8,11 @@ const Quiz = ({ songData }) => {
   const [count, setCount] = useState(0);
   const [years, setYears] = useState(songData[decade]);
 
+<<<<<<< HEAD
   console.log(years)
   
+=======
+>>>>>>> main
   return (count <= 9) ? (
     <>
       <Question songs={years[count]}/>

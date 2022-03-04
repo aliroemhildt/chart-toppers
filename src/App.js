@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './App.scss';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
+import Quiz from './Components/Quiz/Quiz';
+import Question from './Components/Question/Question';
 import Footer from './Components/Footer/Footer';
 import { getSongs } from './apiCalls';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 const App = () => {
   const [songData, setSongData] = useState({});
-  const [selectedQuiz, setSelectedQuiz] = useState('');
+  // const [selectedQuiz, setSelectedQuiz] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -35,7 +37,9 @@ const App = () => {
           <Routes>
             <Route index element={<Navigate replace to='/home' />} />
             <Route path='/home' element={<Home />} />
-            <Route path='/:decade' element={<Quiz songData={songData}/>} />
+            <Route path='/quiz/:decade' element={<Quiz songData={songData}/>}>
+              {/* <Route path=':decade' element={<Question />} /> */}
+            </Route>
             <Route path='*' element={<p>this will be an error page</p>} />
           </Routes>
           <Footer />

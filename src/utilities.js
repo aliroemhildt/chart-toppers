@@ -6,17 +6,17 @@ const cleanData = (data) => {
     let decade = yearNums[2];
     
     if (decade === '8') {
-      acc.decade80.push(data[key]);
+      acc['1980s'].push({ [key]: data[key] });
     } else if (decade === '9') {
-      acc.decade90.push(data[key]);
+      acc['1990s'].push({ [key]: data[key] });
     }else if (decade === '0') {
-      acc.decade00.push(data[key]);
+      acc['2000s'].push({ [key]: data[key] });
     }else if (decade === '1' || decade === '2') {
-      acc.decade10.push(data[key]);
+      acc['2010s'].push({ [key]: data[key] });
     }
 
     return acc;
-  }, {decade80: [], decade90: [], decade00: [], decade10: []});
+  }, {'1980s': [], '1990s': [], '2000s': [], '2010s': []});
 }
 
 export { cleanData };
