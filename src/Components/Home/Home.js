@@ -1,24 +1,12 @@
-import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const Home = (props) => {
-  console.log(props);
-
-  useEffect(() => {
-
-  })
-  const songCovers = props.songData.decade10.map((year, index) => {
-    const songs = Object.keys(year);
-    return songs.map(song => {
-      return <img key={index} src={year[song].image_url} />
-    })
-  });
-
   return (
     <main>
-      <p>Home</p>
-      <div>
-        { songCovers }
-      </div>
+      <Link to='/quiz/1980s'>1980s</Link>
+      <Link to='/quiz/1990s'>1990s</Link>
+      <Link to='/quiz/2000s'>2000s</Link>
+      <Link to='/quiz/2010s'>2010s</Link>
     </main>
   );
 }
