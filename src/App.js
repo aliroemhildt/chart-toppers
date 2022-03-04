@@ -7,26 +7,37 @@ import { getSongs } from './apiCalls';
 import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
-  const [allSongs, setAllSongs] = useState([]);
+  const [songData, setSongData] = useState({});
   const [selectedQuiz, setSelectedQuiz] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const getAllSongs = () => {
+  const getSongData = () => {
     getSongs()
-      .then(data => setAllSongs(data))
+      .then(data => {
+        setSongData(data);
+        setIsLoading(false);
+      })
   }
 
   useEffect(() => {
-    getAllSongs()
+    getSongData()
   }, []);
 
   return (
     <div className='App'>
-      <Header />
-      <Routes>
-      <Route path='/' element={<Home allSongs={allSongs} />} />
-      </Routes>
-      <Footer />
+      { isLoading &&
+        <p>Loading... please wait!</p>
+      }
+      { !isLoading &&
+        <>
+          <Header />
+          <Routes>
+          <Route path='/' element={<Home songData={songData} />} />
+          </Routes>
+          <Footer />
+        </>
+      }
     </div>
   );
 }

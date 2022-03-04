@@ -4,10 +4,13 @@ const Home = (props) => {
   console.log(props);
 
   useEffect(() => {
-    
+
   })
-  const songCovers = props.allSongs.map((song, index) => {
-    return <img key={index} src={song.image_url} />
+  const songCovers = props.songData.decade10.map((year, index) => {
+    const songs = Object.keys(year);
+    return songs.map(song => {
+      return <img key={index} src={year[song].image_url} />
+    })
   });
 
   return (
