@@ -33,7 +33,10 @@ const App = () => {
         <>
           <Header />
           <Routes>
-          <Route path='/' element={<Home songData={songData} />} />
+            <Route index element={<Navigate replace to='/home' />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/:decade' element={<Quiz songData={songData}/>} />
+            <Route path='*' element={<p>this will be an error page</p>} />
           </Routes>
           <Footer />
         </>
