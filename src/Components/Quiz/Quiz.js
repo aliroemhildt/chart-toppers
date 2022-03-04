@@ -5,18 +5,30 @@ import Question from '../Question/Question';
 const Quiz = ({ songData }) => {
   const { decade } = useParams();
 
-  const [count, setCount] = useState(0);
+  const [questionCount, setQuestionCount] = useState(0);
   const [years, setYears] = useState(songData[decade]);
+  const [score, setScore] = useState({
+    q1: null,
+    q2: null,
+    q3: null,
+    q4: null,
+    q5: null
+  })
 
-  return (count <= 9) ? (
+  return (questionCount <= 9) ? (
     <>
-      <Question songs={years[count]}/>
-      <button onClick={() => setCount(count + 1)}>next</button>
+      <Question
+        songs={years[questionCount]}
+        score={score}
+        setScore={setScore}
+      />
+      <button onClick={() => setQuestionCount(questionCount + 1)}>next</button>
     </>
   ) : (
     <div>
       <p>You did it!!!</p>
       <Link to='/'>Back to Home</Link>
+      {/* {display score here} */}
     </div>
   )
 }

@@ -5,7 +5,18 @@ const Question = ({ songs }) => {
   const year = Object.keys(songs)[0];
   console.log(songs[year])
 
-  // need to figure out how to randomize answers
+  const randomSort = () => {
+    let unshuffled = [
+      songs[year].song1,
+      songs[year].song2,
+      songs[year].song3,
+      songs[year].song4,
+      songs[year].song5
+    ];
+    console.log(unshuffled);
+  }
+
+  randomSort(year);
 
   return (
     <div>
