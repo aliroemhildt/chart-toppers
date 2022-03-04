@@ -1,30 +1,45 @@
-import logo from './logo.svg';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
+import Header from './Components/Header/Header';
+import Home from './Components/Home/Home';
+import Footer from './Components/Footer/Footer';
 import { getSongs } from './apiCalls';
+import { Routes, Route } from 'react-router-dom';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      src: ''
-    }
-  }
+const App = () => {
+  const [songData, setSongData] = useState({});
+  const [selectedQuiz, setSelectedQuiz] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  componentDidMount = () => {
+  const getSongData = () => {
     getSongs()
-      .then(data => this.setState({src: data[2021].song1.image_url}))
-  }  
-
-  render = () => {
-    return (
-      <div className="App">
-        <header className="App-header">
-          {this.state.src && <img src={this.state.src} />}
-        </header>
-      </div>
-    );
+      .then(data => {
+        setSongData(data);
+        setIsLoading(false);
+      })
   }
+
+  useEffect(() => {
+    getSongData()
+  }, []);
+
+  return (
+    <div className='App'>
+      { isLoading &&
+        <p>Loading... please wait!</p>
+      }
+      { !isLoading &&
+        <>
+          <Header />
+          <Routes>
+          <Route path='/' element={<Home songData={songData} />} />
+          </Routes>
+          <Footer />
+        </>
+      }
+    </div>
+  );
 }
 
 export default App;
