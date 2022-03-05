@@ -39,22 +39,21 @@ const Quiz = ({ songData }) => {
       ...playerAnswers,
       [year]: songId
     });
+
+    setQuestionCount(questionCount + 1)
   }
 
   return (questionCount < allSongs.length) ? (
-    <>
-      <Question
-        songs={allSongs[questionCount]}
-        year={Object.keys(allSongs[questionCount])[0]}
-        score={score}
-        setScore={setScore}
-        handleClick={handleClick}
-      />
-      <button onClick={() => setQuestionCount(questionCount + 1)}>next</button>
-    </>
+    <Question
+      songs={allSongs[questionCount]}
+      year={Object.keys(allSongs[questionCount])[0]}
+      score={score}
+      setScore={setScore}
+      handleClick={handleClick}
+    />
   ) : (
     <div>
-      <p>You did it!!!</p>
+      <p>Score: {score}</p>
       <Link to='/'>Back to Home</Link>
       {/* {display score here} */}
     </div>

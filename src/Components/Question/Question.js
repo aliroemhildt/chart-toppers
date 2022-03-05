@@ -16,38 +16,6 @@ const Question = ({ songs, year, score, setScore, handleClick }) => {
 
   const shuffledAnswers = shuffle(answers);
 
-  // const [year, setYear] = useState(Object.keys(songs)[0]);
-  // const [unshuffledAnswers, setUnshuffledAnswers] = useState([
-  //   songs[year].song1,
-  //   songs[year].song2,
-  //   songs[year].song3,
-  //   songs[year].song4,
-  //   songs[year].song5
-  // ]);
-  // const [shuffledAnswers, setShuffledAnswers] = useState(shuffleAnswers(unshuffledAnswers));
-
-  // useEffect(() => {
-  //   let newYear = Object.keys(songs)[0];
-  //   console.log(newYear)
-  //   console.log(songs[newYear].song1);
-  //   let newAnswers = [
-  //     songs[newYear].song1,
-  //     songs[newYear].song2,
-  //     songs[newYear].song3,
-  //     songs[newYear].song4,
-  //     songs[newYear].song5
-  //   ];
-
-  //   if (year != newYear) {
-  //     setYear(newYear);
-  //   }
-
-  //   if (unshuffledAnswers != newAnswers) {
-  //     setUnshuffledAnswers(newAnswers);
-  //     setShuffledAnswers(shuffleAnswers(newAnswers));
-  //   }
-  // }, []);
-
   const answerList =
     shuffledAnswers.map(song => {
       return (
