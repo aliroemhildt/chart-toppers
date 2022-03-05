@@ -6,19 +6,33 @@ const Quiz = ({ songData }) => {
   const { decade } = useParams();
 
   const [questionCount, setQuestionCount] = useState(0);
-  const [years, setYears] = useState(songData[decade]);
-  const [score, setScore] = useState({
-    q1: null,
-    q2: null,
-    q3: null,
-    q4: null,
-    q5: null
-  })
+  const [allSongs, setAllSongs] = useState(songData[decade]);
+  const [score, setScore] = useState({});
+  const [correctAnswers, setCorrectAnswers] = useState({});
+  const [playerAnswers, setPlayerAnswers] = useState({});
+
+  useEffect(() => {
+    getCorrectAnswers();
+  }, [])
+
+  const getCorrectAnswers = () => {
+    allSongs.forEach(item => {
+      const year = Object.keys(item)[0];
+      setCorrectAnswers({
+        ...correctAnswers,
+        [year]: item[year].song1.id
+      });
+    })
+  }
+
+  const handleClick = (event) => {
+    set
+  }
 
   return (questionCount <= 9) ? (
     <>
       <Question
-        songs={years[questionCount]}
+        songs={allSongs[questionCount]}
         score={score}
         setScore={setScore}
       />
