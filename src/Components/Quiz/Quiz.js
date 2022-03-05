@@ -45,6 +45,7 @@ const Quiz = ({ songData }) => {
     <>
       <Question
         songs={allSongs[questionCount]}
+        year={Object.keys(allSongs[questionCount])[0]}
         score={score}
         setScore={setScore}
         handleClick={handleClick}
