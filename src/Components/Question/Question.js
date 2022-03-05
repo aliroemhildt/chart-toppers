@@ -1,11 +1,11 @@
 import './Question.scss';
 // import { useParams, Navigate } from 'react-router-dom';
 
-const Question = ({ songs }) => {
+const Question = ({ songs, score, setScore }) => {
   const year = Object.keys(songs)[0];
   console.log(songs[year])
 
-  const randomSort = () => {
+  const shuffleSongs = () => {
     let unshuffled = [
       songs[year].song1,
       songs[year].song2,
@@ -13,16 +13,30 @@ const Question = ({ songs }) => {
       songs[year].song4,
       songs[year].song5
     ];
-    console.log(unshuffled);
+    
+    // let shuffled = [];
+
+    // for (let i = unshuffled.length - 1; i > 0; i--)
+    return unshuffled.sort(() => Math.random() - 0.5);
   }
 
-  randomSort(year);
+  const songList =
+    shuffleSongs().map(song => {
+      return (
+        <div>
+          <img src={song.image_url} />
+          <p>{song.title}</p>
+          <p>{song.artist}</p>
+        </div>
+      )
+    });
 
   return (
     <div>
       <p>Which song was number 1 in {year}?</p>
       <div className='answers-container'>
-        <div>
+        { songList }
+        {/* <div>
           <img src={songs[year].song1.image_url} />
           <p>{songs[year].song1.title}</p>
           <p>{songs[year].song1.artist}</p>
@@ -46,7 +60,7 @@ const Question = ({ songs }) => {
           <img src={songs[year].song5.image_url} />
           <p>{songs[year].song5.title}</p>
           <p>{songs[year].song5.artist}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
