@@ -5,18 +5,57 @@ import Question from '../Question/Question';
 const Quiz = ({ songData }) => {
   const { decade } = useParams();
 
-  const [count, setCount] = useState(0);
-  const [years, setYears] = useState(songData[decade]);
+  const [questionCount, setQuestionCount] = useState(0);
+  const [allSongs, setAllSongs] = useState(songData[decade]);
+  const [score, setScore] = useState({});
+  const [correctAnswers, setCorrectAnswers] = useState({});
+  const [playerAnswers, setPlayerAnswers] = useState({});
 
-  return (count <= 9) ? (
+  useEffect(() => {
+    getCorrectAnswers();
+  }, []);
+
+  const getCorrectAnswers = () => {
+    const allCorrectAnswers = allSongs.reduce((acc, item) => {
+      const year = Object.keys(item)[0];
+      const songId = item[year].song1.id;
+      
+      acc = {
+        ...acc,
+        [year]: songId
+      }
+
+      return acc;
+    }, {});
+
+    setCorrectAnswers(allCorrectAnswers);
+  }
+
+  const handleClick = (id) => {
+    const year = Object.keys(allSongs[questionCount])[0];
+    const songId = id;
+
+    setPlayerAnswers({
+      ...playerAnswers,
+      [year]: songId
+    });
+  }
+
+  return (questionCount < allSongs.length) ? (
     <>
-      <Question songs={years[count]}/>
-      <button onClick={() => setCount(count + 1)}>next</button>
+      <Question
+        songs={allSongs[questionCount]}
+        score={score}
+        setScore={setScore}
+        handleClick={handleClick}
+      />
+      <button onClick={() => setQuestionCount(questionCount + 1)}>next</button>
     </>
   ) : (
     <div>
       <p>You did it!!!</p>
       <Link to='/'>Back to Home</Link>
+      {/* {display score here} */}
     </div>
   )
 }
