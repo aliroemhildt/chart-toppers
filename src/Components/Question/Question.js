@@ -1,8 +1,7 @@
 import './Question.scss';
 
-const Question = ({ songs, score, setScore }) => {
+const Question = ({ songs, score, setScore, handleClick }) => {
   const year = Object.keys(songs)[0];
-  console.log(songs[year])
 
   const shuffleSongs = () => {
     let unshuffled = [
@@ -19,7 +18,7 @@ const Question = ({ songs, score, setScore }) => {
   const songList =
     shuffleSongs().map(song => {
       return (
-        <div key={song.id}>
+        <div onClick={event => handleClick(event, song.id)} key={song.id}>
           <img src={song.image_url} />
           <p>{song.title}</p>
           <p>{song.artist}</p>

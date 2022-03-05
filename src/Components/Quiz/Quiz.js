@@ -11,22 +11,40 @@ const Quiz = ({ songData }) => {
   const [correctAnswers, setCorrectAnswers] = useState({});
   const [playerAnswers, setPlayerAnswers] = useState({});
 
+  console.log(correctAnswers);
+  console.log(playerAnswers);
+
   useEffect(() => {
     getCorrectAnswers();
-  }, [])
+  }, []);
 
   const getCorrectAnswers = () => {
-    allSongs.forEach(item => {
+    const allCorrectAnswers = allSongs.reduce((acc, item) => {
       const year = Object.keys(item)[0];
-      setCorrectAnswers({
-        ...correctAnswers,
-        [year]: item[year].song1.id
-      });
-    })
+      const songId = item[year].song1.id;
+      acc = {
+        ...acc,
+        [year]: songId
+      }
+      // setCorrectAnswers({
+      //   ...correctAnswers,
+      //   [year]: songId
+      // });
+      return acc;
+    }, {});
+
+    setCorrectAnswers(allCorrectAnswers);
   }
 
-  const handleClick = (event) => {
-    set
+  const handleClick = (event, id) => {
+    event.preventDefault();
+    const year = Object.keys(allSongs[questionCount])[0];
+    const songId = id;
+
+    setPlayerAnswers({
+      ...playerAnswers,
+      [year]: songId
+    });
   }
 
   return (questionCount <= 9) ? (
@@ -35,6 +53,7 @@ const Quiz = ({ songData }) => {
         songs={allSongs[questionCount]}
         score={score}
         setScore={setScore}
+        handleClick={handleClick}
       />
       <button onClick={() => setQuestionCount(questionCount + 1)}>next</button>
     </>
