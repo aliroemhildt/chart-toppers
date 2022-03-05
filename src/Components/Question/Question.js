@@ -18,7 +18,7 @@ const Question = ({ songs, score, setScore, handleClick }) => {
   const songList =
     shuffleSongs().map(song => {
       return (
-        <div onClick={event => handleClick(event, song.id)} key={song.id}>
+        <div onClick={() => handleClick(song.id)} key={song.id}>
           <img src={song.image_url} />
           <p>{song.title}</p>
           <p>{song.artist}</p>

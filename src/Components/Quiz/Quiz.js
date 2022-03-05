@@ -11,9 +11,6 @@ const Quiz = ({ songData }) => {
   const [correctAnswers, setCorrectAnswers] = useState({});
   const [playerAnswers, setPlayerAnswers] = useState({});
 
-  console.log(correctAnswers);
-  console.log(playerAnswers);
-
   useEffect(() => {
     getCorrectAnswers();
   }, []);
@@ -22,22 +19,19 @@ const Quiz = ({ songData }) => {
     const allCorrectAnswers = allSongs.reduce((acc, item) => {
       const year = Object.keys(item)[0];
       const songId = item[year].song1.id;
+      
       acc = {
         ...acc,
         [year]: songId
       }
-      // setCorrectAnswers({
-      //   ...correctAnswers,
-      //   [year]: songId
-      // });
+
       return acc;
     }, {});
 
     setCorrectAnswers(allCorrectAnswers);
   }
 
-  const handleClick = (event, id) => {
-    event.preventDefault();
+  const handleClick = (id) => {
     const year = Object.keys(allSongs[questionCount])[0];
     const songId = id;
 
@@ -47,7 +41,7 @@ const Quiz = ({ songData }) => {
     });
   }
 
-  return (questionCount <= 9) ? (
+  return (questionCount < allSongs.length) ? (
     <>
       <Question
         songs={allSongs[questionCount]}
