@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { shape, objectOf, arrayOf, number, string } from 'prop-types';
 import Question from '../Question/Question';
+import './Quiz.scss';
 
 const Quiz = ({ songData }) => {
   const { decade } = useParams();
@@ -93,6 +95,35 @@ const Quiz = ({ songData }) => {
     </div>
     )
   );
+}
+
+Quiz.propTypes = {
+  songData: shape({
+    '1980s': arrayOf(objectOf(objectOf(shape({
+      artist: string,
+      id: number,
+      title: string,
+      image_url: string
+    })))),
+    '1990s': arrayOf(objectOf(objectOf(shape({
+      artist: string,
+      id: number,
+      title: string,
+      image_url: string
+    })))),
+    '2000s': arrayOf(objectOf(objectOf(shape({
+      artist: string,
+      id: number,
+      title: string,
+      image_url: string
+    })))),
+    '2010s': arrayOf(objectOf(objectOf(shape({
+      artist: string,
+      id: number,
+      title: string,
+      image_url: string
+    }))))
+  }).isRequired
 }
 
 export default Quiz;
