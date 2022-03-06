@@ -5,6 +5,7 @@ describe('Home page', () => {
 
     cy.get('.page-title').contains('Chart Toppers')
       .get('.quiz-button').should('have.text', '1980\'s1990\'s2000\'s2010\'s')
-      .
+      .get('footer > p').contains('Created by Ali Roemhilt')
+      .get('.linkedin').should('have.attr', 'href', 'https://www.linkedin.com/in/aliroemhildt/')
   })
 })
