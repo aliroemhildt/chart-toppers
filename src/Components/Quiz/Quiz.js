@@ -31,6 +31,13 @@ const Quiz = ({ songData }) => {
     setCorrectAnswers(allCorrectAnswers);
   }
 
+  updateScore = () => {
+    score = 0;
+    for (let i = 0; i <= questionCount; i++) {
+      
+    }
+  }
+
   const handleClick = (id) => {
     const year = Object.keys(allSongs[questionCount])[0];
     const songId = id;
@@ -40,7 +47,8 @@ const Quiz = ({ songData }) => {
       [year]: songId
     });
 
-    setQuestionCount(questionCount + 1)
+    setQuestionCount(questionCount + 1);
+    setScore
   }
 
   return (questionCount < allSongs.length) ? (
@@ -53,7 +61,7 @@ const Quiz = ({ songData }) => {
     />
   ) : (
     <div>
-      <p>Score: {score}</p>
+      <p>Score: </p>
       <Link to='/'>Back to Home</Link>
       {/* {display score here} */}
     </div>
