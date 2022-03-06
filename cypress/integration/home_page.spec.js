@@ -5,7 +5,7 @@ describe('Home Page', () => {
 
       .get('.page-title').contains('Chart Toppers')
       .get('.quiz-button').should('have.text', '1980\'s1990\'s2000\'s2010\'s')
-      .get('footer > p').contains('Created by Ali Roemhilt')
+      .get('footer > p').contains('Created by Ali Roemhildt')
       .get('.linkedin').should('have.attr', 'href', 'https://www.linkedin.com/in/aliroemhildt/')
   });
 })
