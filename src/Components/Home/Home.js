@@ -3,7 +3,7 @@ import './Home.scss';
 
 const Home = () => {
   return (
-    <main>
+    <div>
       <Link to='/quiz/1980s'>
         <button className='quiz-button'>1980's</button>
       </Link>
@@ -16,7 +16,7 @@ const Home = () => {
       <Link to='/quiz/2010s'>
         <button className='quiz-button'>2010's</button>
       </Link>
-    </main>
+    </div>
   );
 }
 

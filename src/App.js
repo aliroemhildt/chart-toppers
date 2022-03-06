@@ -32,12 +32,14 @@ const App = () => {
       { !isLoading &&
         <>
           <Header />
-          <Routes>
-            <Route index element={<Navigate replace to='/home' />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/quiz/:decade' element={<Quiz songData={songData}/>} />
-            <Route path='*' element={<p>this will be an error page</p>} />
-          </Routes>
+          <main>
+            <Routes>
+              <Route index element={<Navigate replace to='/home' />} />
+              <Route path='/home' element={<Home />} />
+              <Route path='/quiz/:decade' element={<Quiz songData={songData}/>} />
+              <Route path='*' element={<p>this will be an error page</p>} />
+            </Routes>
+          </main>
           <Footer />
         </>
       }
