@@ -1,4 +1,4 @@
-describe('Home page', () => {
+describe('Home Page', () => {
   it('Should show quiz options and page info on home page', () => {
     cy.intercept('GET', 'https://chart-toppers-api.herokuapp.com/api/v1/songs', { fixture: 'sampleSongData.json' })
     cy.visit('http://localhost:3000')
