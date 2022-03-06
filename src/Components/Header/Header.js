@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <Link to='/'>
-        <h1>Chart Toppers</h1>
+        <h1 className='page-title'>Chart Toppers</h1>
       </Link>
       {/* <NavLink to='/about'>About</NavLink> */}
     </header>
