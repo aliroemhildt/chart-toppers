@@ -27,7 +27,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className='App'>
+    <div className='app'>
       <Header />
       <main>
       { (isLoading && !error) &&
@@ -40,7 +40,7 @@ const App = () => {
             <Route index element={<Navigate replace to='/home' />} />
             <Route path='/home' element={<Home />} />
             <Route path='/quiz/:decade' element={<Quiz songData={songData}/>} />
-            <Route path='*' element={<Error error={'Oops! Looks like this page doesn\'t exist.'} />} />
+            <Route path='/*' element={<Error error={'Oops! Looks like this page doesn\'t exist.'} />} />
           </Routes>
         </>
       }
