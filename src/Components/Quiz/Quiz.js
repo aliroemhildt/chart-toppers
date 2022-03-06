@@ -60,7 +60,7 @@ const Quiz = ({ songData }) => {
 
     return keys.map(key => {
       return (
-        <div key={songs[key].id}>
+        <div className='song-card' key={songs[key].id}>
           <img src={songs[key].image_url} />
           <p>{songs[key].title}</p>
           <p>{songs[key].artist}</p>
@@ -79,8 +79,8 @@ const Quiz = ({ songData }) => {
         />
       </div>
     ) : (
-    <div>
-      <p>Score: {score}/{allSongs.length}</p>
+    <div className='results-container'>
+      <p className='score'>Score: {score}/{allSongs.length}</p>
       <div className='player-answers'>
         <p>Your Guesses:</p>
         {renderCards(playerAnswers)}
