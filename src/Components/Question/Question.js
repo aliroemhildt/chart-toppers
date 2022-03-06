@@ -1,7 +1,7 @@
 import './Question.scss';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
-const Question = ({ songs, year, score, setScore, handleClick }) => {
+const Question = ({ songs, year, handleClick }) => {
   const shuffle = (list) => {
     return list.sort(() => Math.random() - 0.5);
   }
@@ -16,10 +16,10 @@ const Question = ({ songs, year, score, setScore, handleClick }) => {
 
   const shuffledAnswers = shuffle(answers);
 
-  const answerList =
+  const songCards =
     shuffledAnswers.map(song => {
       return (
-        <div onClick={() => handleClick(song.id)} key={song.id}>
+        <div onClick={() => handleClick(song)} key={song.id}>
           <img src={song.image_url} />
           <p>{song.title}</p>
           <p>{song.artist}</p>
@@ -31,7 +31,7 @@ const Question = ({ songs, year, score, setScore, handleClick }) => {
     <div>
       <p>Which song was number 1 in {year}?</p>
       <div className='answers-container'>
-        { answerList }
+        { songCards }
       </div>
     </div>
   );

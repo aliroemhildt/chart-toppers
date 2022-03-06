@@ -37,9 +37,7 @@ const App = () => {
           <Routes>
             <Route index element={<Navigate replace to='/home' />} />
             <Route path='/home' element={<Home />} />
-            <Route path='/quiz/:decade' element={<Quiz songData={songData}/>}>
-              {/* <Route path=':decade' element={<Question />} /> */}
-            </Route>
+            <Route path='/quiz/:decade' element={<Quiz songData={songData}/>} />
             <Route path='*' element={<p>this will be an error page</p>} />
           </Routes>
           <Footer />
