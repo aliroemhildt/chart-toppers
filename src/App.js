@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './App.scss';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { getSongs } from './apiCalls';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Quiz from './Components/Quiz/Quiz';
-import Question from './Components/Question/Question';
 import Footer from './Components/Footer/Footer';
-import { getSongs } from './apiCalls';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import './App.scss';
 
 const App = () => {
   const [songData, setSongData] = useState({});
-  // const [selectedQuiz, setSelectedQuiz] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 

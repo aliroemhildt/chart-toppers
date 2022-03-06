@@ -1,5 +1,4 @@
 import './Question.scss';
-// import { useState, useEffect } from 'react';
 
 const Question = ({ songs, year, handleClick }) => {
   const shuffle = (list) => {
