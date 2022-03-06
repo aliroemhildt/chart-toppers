@@ -9,7 +9,7 @@ import Error from './Components/Error/Error';
 import './App.scss';
 
 const App = () => {
-  const [songData, setSongData] = useState({});
+  const [songData, setSongData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -28,23 +28,25 @@ const App = () => {
 
   return (
     <div className='App'>
-      { isLoading &&
+      <Header />
+      <main>
+      { (isLoading && !error) &&
         <p>Loading... please wait!</p>
       }
       { !isLoading &&
         <>
-          <Header />
-          <main>
-            <Routes>
-              <Route index element={<Navigate replace to='/home' />} />
-              <Route path='/home' element={<Home />} />
-              <Route path='/quiz/:decade' element={<Quiz songData={songData}/>} />
-              <Route path='*' element={<Error error={'Oops! Looks like this page doesn\'t exist.'} />} />
-            </Routes>
-          </main>
-          <Footer />
+          { error && <Navigate to='*' /> }
+          <Routes>
+            <Route index element={<Navigate replace to='/home' />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/quiz/:decade' element={<Quiz songData={songData}/>} />
+            <Route path='*' element={<Error error={'Oops! Looks like this page doesn\'t exist.'} />} />
+          </Routes>
         </>
       }
+      {error && <Error error={error} />}
+      </main>
+      <Footer />
     </div>
   );
 }
