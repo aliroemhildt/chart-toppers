@@ -1,3 +1,4 @@
+import { func, objectOf, shape, number, string } from 'prop-types';
 import './Question.scss';
 
 const Question = ({ songs, year, handleClick }) => {
@@ -34,6 +35,43 @@ const Question = ({ songs, year, handleClick }) => {
       </div>
     </div>
   );
+}
+
+Question.propTypes = {
+  songs: objectOf(objectOf(shape({
+    song1: shape({
+      id: number,
+      artis: string,
+      title: string,
+      image_url: string
+    }),
+    song2: shape({
+      id: number,
+      artis: string,
+      title: string,
+      image_url: string
+    }),
+    song3: shape({
+      id: number,
+      artis: string,
+      title: string,
+      image_url: string
+    }),
+    song4: shape({
+      id: number,
+      artis: string,
+      title: string,
+      image_url: string
+    }),
+    song5: shape({
+      id: number,
+      artis: string,
+      title: string,
+      image_url: string
+    })
+  }))).isRequired,
+  year: string.isRequired,
+  handleClick: func.isRequired
 }
 
 export default Question;
