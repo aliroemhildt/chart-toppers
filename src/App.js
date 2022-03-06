@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Quiz from './Components/Quiz/Quiz';
 import Footer from './Components/Footer/Footer';
+import Error from './Components/Error/Error';
 import './App.scss';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         setSongData(data);
         setIsLoading(false);
       })
+      .catch(error => setError(error))
   }
 
   useEffect(() => {
@@ -37,7 +39,7 @@ const App = () => {
               <Route index element={<Navigate replace to='/home' />} />
               <Route path='/home' element={<Home />} />
               <Route path='/quiz/:decade' element={<Quiz songData={songData}/>} />
-              <Route path='*' element={<p>this will be an error page</p>} />
+              <Route path='*' element={<Error error={'Oops! Looks like this page doesn\'t exist.'} />} />
             </Routes>
           </main>
           <Footer />
