@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Home.scss';
 
-const Home = (props) => {
+const Home = () => {
   return (
     <main>
       <Link to='/quiz/1980s'>
