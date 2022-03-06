@@ -71,11 +71,13 @@ const Quiz = ({ songData }) => {
 
   return (
     questionCount < allSongs.length ? (
-    <Question
-      songs={allSongs[questionCount]}
-      year={Object.keys(allSongs[questionCount])[0]}
-      handleClick={handleClick}
-    />
+      <div className='question-container'>
+        <Question
+          songs={allSongs[questionCount]}
+          year={Object.keys(allSongs[questionCount])[0]}
+          handleClick={handleClick}
+        />
+      </div>
     ) : (
     <div>
       <p>Score: {score}/{allSongs.length}</p>
