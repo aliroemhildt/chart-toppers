@@ -6,8 +6,8 @@ describe('Question Page', () => {
   });
 
   it('Should show five answer options for each year', () => {
-    cy.get('header').contains('Chart Toppers')
-      .get('footer').contains('Created by Ali Roemhilt')
+    cy.get('header').contains('CHART TOPPERS')
+      .get('footer').contains('Created by Ali Roemhildt')
     
       .get('#151').find('img').should('have.attr', 'src', 'https://m.media-amazon.com/images/I/61bqP3BMkUL._UX500_FMwebp_QL85_.jpg')
       .get('#151').find('.title').contains('Tik Tok')
@@ -34,15 +34,19 @@ describe('Question Page', () => {
     cy.get('#151').click()
       .get('#157').click()
 
-      .get('.results-container').find('p').contains('Score: 1/2')
+      .get('.score').contains('SCORE: 1/2')
 
-      .get('.player-answers').find('p').contains('Your Guesses:')
-      .get('.player-answers').find('.song-card').eq(0).contains('Tik Tok')
-      .get('.player-answers').find('.song-card').eq(1).contains('Party Rock Anthem')
+      .get('.years-column').find('.column-title').contains('YEAR:')
+      .get('.years-column').find('.year-container').eq(0).contains('2010')
+      .get('.years-column').find('.year-container').eq(1).contains('2011')
 
-      .get('.correct-answers').find('p').contains('Answers:')
-      .get('.correct-answers').find('.song-card').eq(0).contains('Tik Tok')
-      .get('.correct-answers').find('.song-card').eq(1).contains('Rolling In The Deep')
+      .get('.guess-column').find('.column-title').contains('YOUR GUESS:')
+      .get('.guess-column').find('.song-card').eq(0).contains('Tik Tok')
+      .get('.guess-column').find('.song-card').eq(1).contains('Party Rock Anthem')
+
+      .get('.answer-column').find('.column-title').contains('ANSWER:')
+      .get('.answer-column').find('.song-card').eq(0).contains('Tik Tok')
+      .get('.answer-column').find('.song-card').eq(1).contains('Rolling In The Deep')
 
       .get('.results-container').find('a:first').should('have.attr', 'href', '/')
   });

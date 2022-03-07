@@ -1,3 +1,15 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
 .error-container {
   height: 70%;
+  margin:50px;
+
+  p,
+  a {
+    font-family: $roboto;
+    font-size: 20px;
+  }
+  
+  font-weight: 300;
 }
