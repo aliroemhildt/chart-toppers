@@ -4,10 +4,11 @@
 header {
   background-color: none;
   border-bottom: 5px solid black;
-  @include flex(column, center, center);
+  @include flex(column, flex-start, center);
 }
 
 .tagline-container {
+  height: 25%;
   width: 100%;
   background-color: black;
   @include flex(column, center, center);
@@ -26,7 +27,11 @@ header {
   color: black;
 }
 
-.title-container
+.title-container {
+  height: 75%;
+  width: 100%;
+  @include flex(row, center, center);
+}
 
 .page-title {
   font-family: $archivo;

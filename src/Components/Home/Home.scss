@@ -7,8 +7,10 @@
   @include flex(column, center, center);
 
   .instructions {
-    font-family: $archivo;
-    font-weight: 200;
+    font-family: $roboto;
+    font-weight: 300;
+    color: black;
+    font-size: 25px;
   }
 }
 
