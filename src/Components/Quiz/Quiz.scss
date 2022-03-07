@@ -2,14 +2,14 @@
 @import '../../styles/variables';
 
 .question-container {
-  min-height: 70%;
+  height: 70%;
   width: 100%;
   @include flex(column, center, center);
 }
 
 .results-container {
   width: 100%;
-  @include flex(column, start, center);
+  @include flex(column, center, center);
 
   .score {
     font-family: $archivo;
@@ -45,6 +45,10 @@
         font-weight: 700;
       }
     }
+  }
+
+  .home-link {
+    @include flex(row, center, center)
   }
 
   .home-button {
@@ -97,4 +101,36 @@
     cursor: pointer;
     background-color: $white-hover;
   }
+}
+
+@media screen and (max-width: 1020px) {
+  .question-container {
+    height: auto;
+    width: 100%;
+  }
+
+  .song-card {
+    background-color: $off-white;
+    border: 2px solid black;
+    margin: 10px;
+    height: 250px;
+    width: 100px;
+
+    img {
+      width: 70px;
+    }
+
+    p {
+      font-size: 14px !important;
+    }
+
+  }
+
+  .year-container {
+      height: 274px !important;
+      
+      p {
+        font-size: 18px !important;
+      }
+  } 
 }

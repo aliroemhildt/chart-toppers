@@ -11,16 +11,16 @@
     font-weight: 300;
     color: black;
     font-size: 25px;
+    margin: 50px;
   }
 }
 
 .quiz-button-container {
   height: 100%;
-  width: 75%;
-  margin-top: 100px;
+  width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 25% 25%;
+  grid-template-rows: 50% 50%;
   justify-items: center;
   align-items: center;
 
@@ -43,5 +43,23 @@
   &:hover {
     cursor: pointer;
     background: $white-hover;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .instructions {
+    font-size: 14px;
+  }
+
+  .quiz-button-container {
+    @include flex(column, center, center);
+  }
+
+  .quiz-button,
+  a {
+    font-size: 30px;
+    height: 90%;
+    width: 100%;
+    margin: 0;
   }
 }
