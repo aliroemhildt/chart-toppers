@@ -20,12 +20,19 @@
 
   .answer-columns {
     @include flex(row, center, start);
+    width: 100%;
 
-    .years-column,
     .guess-column,
     .answer-column {
       @include flex(column, center, center);
       margin: 5px;
+      width: 30%
+    }
+
+    .years-column {
+      @include flex(column, center, center);
+      margin: 5px;
+      width: 15%;
     }
 
     .column-title {
@@ -36,7 +43,7 @@
     }
 
     .year-container {
-      height: 274px;
+      height: 344px;
       @include flex(row, center, center);
 
       p {
@@ -48,13 +55,14 @@
   }
 
   .home-link {
-    @include flex(row, center, center)
+    @include flex(row, center, center);
+    width: 100%;
   }
 
   .home-button {
     margin: 40px;
     height: 50px;
-    width: 100px;
+    width: 200px;
     background-color: $dark-blue;
     border: 2px solid black;
     font-family: $roboto;
@@ -73,11 +81,11 @@
   background-color: $off-white;
   border: 2px solid black;
   margin: 10px;
-  height: 275px;
-  width: 150px;
+  height: 320px;
+  width: 70%;
 
   img {
-    width: 130px;
+    width: calc(100% - 20px);
     height: auto;
     margin: 10px;
   }
@@ -88,6 +96,7 @@
     font-size: 16px;
     font-weight: 400;
     margin: 10px;
+    min-height: 40px;
   }
 
   .artist {
@@ -95,6 +104,7 @@
     color: $dark-blue;
     font-size: 16px;
     margin: 10px;
+    min-height: 40px;
   }
 
   &:hover {
@@ -103,7 +113,7 @@
   }
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 680px) {
   .question-container {
     height: auto;
     width: 100%;
@@ -113,12 +123,8 @@
     background-color: $off-white;
     border: 2px solid black;
     margin: 10px;
-    height: 250px;
-    width: 100px;
-
-    img {
-      width: 70px;
-    }
+    width: 60%;
+    height: 400px;
 
     p {
       font-size: 14px !important;
@@ -126,11 +132,20 @@
 
   }
 
+  .column-title {
+    font-size: 14px !important;
+  }
+
+  .guess-column,
+  .answer-column {
+    width: 40% !important;
+  }
+
   .year-container {
-      height: 274px !important;
-      
-      p {
-        font-size: 18px !important;
-      }
+    height: 424px !important;  
+
+    p {
+      font-size: 18px !important;
+    }
   } 
 }
