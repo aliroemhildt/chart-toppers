@@ -67,8 +67,8 @@ const Quiz = ({ songData }) => {
       return (
         <div className='song-card' key={songs[key].id}>
           <img src={songs[key].image_url} />
-          <p>{songs[key].title}</p>
-          <p>{songs[key].artist}</p>
+          <p className='title'>{songs[key].title}</p>
+          <p className='artist'>{songs[key].artist.toUpperCase()}</p>
         </div>
       );
     });

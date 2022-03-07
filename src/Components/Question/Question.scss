@@ -1,3 +1,18 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.question-container {
+  @include flex(column, center, center);
+}
+
 .answers-container {
   display: flex;
+}
+
+.question-text {
+    font-family: $roboto;
+    font-weight: 300;
+    color: black;
+    font-size: 25px;
+    margin: 25px;
 }
