@@ -12,6 +12,18 @@ View the depolyed app [here](https://chart-toppers.herokuapp.com/home)!
 
 ## Screenshots
 
+Home page:
+
+![home page](https://media.giphy.com/media/alGa1uUULRkd5Q4jka/giphy.gif)
+
+Quiz questions:
+
+![quiz](https://media.giphy.com/media/isTy2VE1P85FkreO1C/giphy.gif)
+
+Results page:
+
+![results](https://media.giphy.com/media/QiL9nKtd4mPwRDgoq4/giphy-downsized.gif)
+
 ## Learning Goals
 - React: fundamentals, learning and implementing Hooks
 - Router: using dynamic routes, learning and implementing v6
