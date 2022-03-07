@@ -18,10 +18,9 @@
 .quiz-button-container {
   height: 100%;
   width: 100%;
-  margin-top: 100px;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 25% 25%;
+  grid-template-rows: 50% 50%;
   justify-items: center;
   align-items: center;
 
@@ -54,7 +53,6 @@
 
   .quiz-button-container {
     @include flex(column, center, center);
-    margin: 0;
   }
 
   .quiz-button,
