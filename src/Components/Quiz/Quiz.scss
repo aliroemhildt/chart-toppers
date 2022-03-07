@@ -43,7 +43,7 @@
     }
 
     .year-container {
-      height: 344px;
+      height: 364px;
       @include flex(row, center, center);
 
       p {
@@ -81,7 +81,7 @@
   background-color: $off-white;
   border: 2px solid black;
   margin: 10px;
-  height: 320px;
+  height: 340px;
   width: 70%;
 
   img {
@@ -96,7 +96,7 @@
     font-size: 16px;
     font-weight: 400;
     margin: 10px;
-    min-height: 40px;
+    // min-height: 40px;
   }
 
   .artist {
@@ -104,7 +104,7 @@
     color: $dark-blue;
     font-size: 16px;
     margin: 10px;
-    min-height: 40px;
+    // min-height: 40px;
   }
 
   &:hover {
