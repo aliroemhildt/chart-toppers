@@ -12,13 +12,13 @@ header {
 }
 
 main {
- height: 75%;
+ height: 70%;
  width: 100%;
- @include flex(column, flex-start, center);
+ @include flex(row, center, center)
 }
 
 footer {
-  height: 5%;
+  height: 10%;
   width: 100%;
 }
 
