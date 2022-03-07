@@ -2,7 +2,7 @@
 @import '../../styles/variables';
 
 .question-container {
-  min-height: 70%;
+  height: 70%;
   width: 100%;
   @include flex(column, center, center);
 }
@@ -97,4 +97,25 @@
     cursor: pointer;
     background-color: $white-hover;
   }
+}
+
+@media screen and (max-width: 1020px) {
+  .question-container {
+    height: auto;
+    width: 100%;
+  }
+
+  .song-card {
+    background-color: $off-white;
+    border: 2px solid black;
+    margin: 10px;
+    height: 350px;
+    width: 250px;
+
+  img {
+    width: 230px;
+  }
+  }
+
+  
 }

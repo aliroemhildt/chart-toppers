@@ -11,6 +11,7 @@
     font-weight: 300;
     color: black;
     font-size: 25px;
+    margin: 50px;
   }
 }
 
@@ -43,5 +44,21 @@
   &:hover {
     cursor: pointer;
     background: $white-hover;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .instructions {
+    font-size: 14px;
+  }
+
+  .quiz-button-container {
+    grid-template-columns: 70%;
+    grid-template-rows: 25% 25% 25% 25%;
+    margin-top: 15px;
+  }
+
+  .quiz-button {
+    font-size: 30px;
   }
 }

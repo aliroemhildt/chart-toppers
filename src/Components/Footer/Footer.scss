@@ -3,6 +3,7 @@
 
 footer {
   @include flex(column, center, center);
+  padding-top: 15px;
 }
 
 .created-by {
@@ -10,6 +11,7 @@ footer {
   font-weight: 600;
   color: $dark-blue;
   font-size: 18px;
+  margin: 5px;
 }
 
 .footer-links-container {
