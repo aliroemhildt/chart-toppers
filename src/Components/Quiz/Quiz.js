@@ -67,11 +67,22 @@ const Quiz = ({ songData }) => {
       return (
         <div className='song-card' key={songs[key].id}>
           <img src={songs[key].image_url} />
-          <p>{songs[key].title}</p>
-          <p>{songs[key].artist}</p>
+          <p className='title'>{songs[key].title}</p>
+          <p className='artist'>{songs[key].artist}</p>
         </div>
       );
     });
+  }
+
+  const renderYears = () => {
+    const years = Object.keys(correctAnswers);
+    return years.map(year => {
+      return (
+        <div className ='year-container' key={year}>
+          <p>{year}</p>
+        </div>
+      )
+    })
   }
 
   if (!allSongs && !error) {
@@ -93,16 +104,24 @@ const Quiz = ({ songData }) => {
   } else if (questionCount === allSongs.length) {
     return (
       <div className='results-container'>
-        <p className='score'>Score: {score}/{allSongs.length}</p>
-        <div className='player-answers'>
-          <p>Your Guesses:</p>
-          {renderCards(playerAnswers)}
+        <p className='score'>SCORE: {score}/{allSongs.length}</p>
+        <div className='answer-columns'>
+          <div className='years-column'>
+            <p className='column-title'>YEAR:</p>
+            {renderYears()}
+          </div>
+          <div className='guess-column'>
+            <p className='column-title'>YOUR GUESS:</p>
+            {renderCards(playerAnswers)}
+          </div>
+          <div className='answer-column'>
+            <p className='column-title'>ANSWER:</p>
+            {renderCards(correctAnswers)}
+          </div>
         </div>
-        <div className='correct-answers'>
-          <p>Answers:</p>
-          {renderCards(correctAnswers)}
-        </div>
-        <Link to='/'>Back to Home</Link>
+        <Link to='/'>
+          <button className='home-button'>Home</button>
+        </Link>
       </div>
     )
   }

@@ -1,0 +1,41 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+header {
+  background-color: none;
+  border-bottom: 5px solid black;
+  @include flex(column, flex-start, center);
+}
+
+.tagline-container {
+  height: 25%;
+  width: 100%;
+  background-color: black;
+  @include flex(column, center, center);
+}
+
+.tagline {
+  color: $blue;
+  font-family: $roboto;
+  font-size: 20px;
+  font-weight: 200;
+  padding: 15px;
+}
+
+.home-link {
+  text-decoration: none;
+  color: black;
+}
+
+.title-container {
+  height: 75%;
+  width: 100%;
+  @include flex(row, center, center);
+}
+
+.page-title {
+  font-family: $archivo;
+  font-weight: 800;
+  font-size: 80px;
+  margin: 20px;
+}

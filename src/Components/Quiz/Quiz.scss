@@ -1,0 +1,100 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.question-container {
+  min-height: 70%;
+  width: 100%;
+  @include flex(column, center, center);
+}
+
+.results-container {
+  width: 100%;
+  @include flex(column, start, center);
+
+  .score {
+    font-family: $archivo;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 30px;
+  }
+
+  .answer-columns {
+    @include flex(row, center, start);
+
+    .years-column,
+    .guess-column,
+    .answer-column {
+      @include flex(column, center, center);
+      margin: 5px;
+    }
+
+    .column-title {
+      font-family: $archivo;
+      font-weight: 800;
+      font-size: 20px;
+      color: black;
+    }
+
+    .year-container {
+      height: 374px;
+      @include flex(row, center, center);
+
+      p {
+        font-family: $roboto;
+        font-size: 30px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .home-button {
+    margin: 40px;
+    height: 50px;
+    width: 100px;
+    background-color: $dark-blue;
+    border: 2px solid black;
+    font-family: $roboto;
+    font-size: 30px;
+    color: $off-white;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $dark-blue-hover;
+    }
+  }
+}
+
+.song-card {
+  @include flex(column, start, start);
+  background-color: $off-white;
+  border: 2px solid black;
+  margin: 10px;
+  height: 350px;
+  width: 250px;
+
+  img {
+    width: 230px;
+    height: auto;
+    margin: 10px;
+  }
+
+  .title {
+    font-family: $roboto;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 10px;
+  }
+
+  .artist {
+    font-family: $archivo;
+    color: $dark-blue;
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $white-hover;
+  }
+}

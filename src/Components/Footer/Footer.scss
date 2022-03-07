@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+footer {
+  @include flex(column, center, center);
+}
+
+.created-by {
+  font-family: $roboto;
+  font-weight: 600;
+  color: $dark-blue;
+  font-size: 18px;
+}
+
+.footer-links-container {
+  @include flex(row, center, center);
+}
+
+.footer-link {
+  font-family: $roboto;
+  font-weight: 400;
+  color: $dark-blue;
+  font-size: 14px;
+  margin: 5px;
+}

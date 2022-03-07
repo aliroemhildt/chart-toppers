@@ -28,12 +28,12 @@ const Question = ({ songs, year, handleClick }) => {
     });
 
   return (
-    <div>
-      <p>Which song was number 1 in {year}?</p>
+    <>
+      <p className='question-text'>Which song was the Billboard #1 hit in {year}?</p>
       <div className='answers-container'>
         { songCards }
       </div>
-    </div>
+    </>
   );
 }
 
