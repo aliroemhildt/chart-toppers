@@ -15,18 +15,24 @@
 }
 
 .quiz-button-container {
-  height: 75%;
-  width: 50%;
+  height: 100%;
+  width: 75%;
+  margin-top: 100px;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 25% 25%;
   justify-items: center;
   align-items: center;
+
+  a {
+    height: 90%;
+    width: 90%;
+  }
 }
 
 .quiz-button {
-  height: 150px;
-  width: 250px;
+  height: 100%;
+  width: 100%;
   font-family: $roboto;
   font-weight: 700;
   font-size: 50px;

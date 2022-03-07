@@ -9,6 +9,59 @@
 
 .results-container {
   width: 100%;
+  @include flex(column, start, center);
+
+  .score {
+    font-family: $archivo;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 30px;
+  }
+
+  .answer-columns {
+    @include flex(row, center, start);
+
+    .years-column,
+    .guess-column,
+    .answer-column {
+      @include flex(column, center, center);
+      margin: 5px;
+    }
+
+    .column-title {
+      font-family: $archivo;
+      font-weight: 800;
+      font-size: 20px;
+      color: black;
+    }
+
+    .year-container {
+      height: 374px;
+      @include flex(row, center, center);
+
+      p {
+        font-family: $roboto;
+        font-size: 30px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .home-button {
+    margin: 40px;
+    height: 50px;
+    width: 100px;
+    background-color: $dark-blue;
+    border: 2px solid black;
+    font-family: $roboto;
+    font-size: 30px;
+    color: $off-white;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $dark-blue-hover;
+    }
+  }
 }
 
 .song-card {
