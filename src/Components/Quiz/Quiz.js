@@ -119,7 +119,7 @@ const Quiz = ({ songData }) => {
             {renderCards(correctAnswers)}
           </div>
         </div>
-        <Link to='/'>
+        <Link className='home-link' to='/'>
           <button className='home-button'>Home</button>
         </Link>
       </div>
