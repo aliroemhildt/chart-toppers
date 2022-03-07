@@ -6,7 +6,8 @@
 }
 
 .answers-container {
-  display: flex;
+  @include flex(row, center, center);
+  width: 100%;
 }
 
 .question-text {
@@ -17,7 +18,7 @@
     margin: 25px;
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 680px) {
   .answers-container {
     @include flex(column, center, center);
   }
