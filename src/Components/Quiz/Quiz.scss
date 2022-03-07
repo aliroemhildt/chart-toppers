@@ -36,7 +36,7 @@
     }
 
     .year-container {
-      height: 374px;
+      height: 274px;
       @include flex(row, center, center);
 
       p {
@@ -69,11 +69,11 @@
   background-color: $off-white;
   border: 2px solid black;
   margin: 10px;
-  height: 350px;
-  width: 250px;
+  height: 275px;
+  width: 150px;
 
   img {
-    width: 230px;
+    width: 130px;
     height: auto;
     margin: 10px;
   }
