@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Chart Toppers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Are you passionate about music, data, and pop culture? Then chart toppers is the game for you! Put your musical knowledge to the test and see if you can guess which song was the Billboard #1 hit of the year.
 
-In the project directory, you can run:
+User's will find four quiz options on the home page: 1980's, 1990's, 2000's, and 2010's. Once a user clicks on the decade they would like to be quizzed on, they will see the first year of that decade and the top fize songs from that year. The user will then click on the song that they think was #1 on the charts that year. Their guess will be saved and they will be brought to the next question. Once they have made it through all of the questions, they will see a results page showing their total score and a comparison of their guess vs. the correct answer for each year. From here, the user can click the "home" button at the bottom of the screen or the "Chart Toppers" logo to be brought back to the home page, where they can choose another quiz or try that one again! 
 
-### `npm start`
+## Deployed App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+View the depolyed app [here](https://chart-toppers.herokuapp.com/home)!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+## Learning Goals
+- React: fundamentals, learning and implementing Hooks
+- Router: using dynamic routes, learning and implementing v6
+- Asynchronous JavaScript
+- End to end testing with Cypress
+- Project managment from ideation and user stories to execution and deployment
+- Responsive design 
+- Building and deploying and Express API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Backend
 
-### `npm run build`
+The deployed API can be found [here](https://chart-toppers-api.herokuapp.com/api/v1/songs)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The API repo can be found [here](https://github.com/aliroemhildt/chart-toppers-api)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The data for this API was built using Express, and the data came directly from Billboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Install and Setup
 
-### `npm run eject`
+1. Clone this repo `git clone git@github.com:aliroemhildt/chart-toppers.git`
+2. Install the necessary package dependencies with `npm install`
+3. Run `npm start`
+4. Go to `http://localhost:3000` to view the app in your browser
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Spec
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Project Spec](https://frontend.turing.edu/projects/module-3/showcase.html) by [Turing School of Software & Design](https://turing.edu/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributors
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Created by Ali Roemhildt
 
-## Learn More
+[GitHub](https://github.com/aliroemhildt)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[LinkedIn](https://www.linkedin.com/in/aliroemhildt/)
