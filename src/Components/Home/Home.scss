@@ -5,32 +5,36 @@
   height: 70%;
   width: 100%;
   @include flex(column, center, center);
+}
 
-  .instructions {
-    font-family: $roboto;
-    font-weight: 300;
-    color: black;
-    font-size: 25px;
-    margin: 50px;
-  }
+.instructions {
+  // height: 10%;
+  font-family: $roboto;
+  font-weight: 300;
+  color: black;
+  font-size: 25px;
+  margin: 25px;
 }
 
 .quiz-button-container {
-  height: 100%;
-  width: 100%;
+  height: 70%;
+  width: 80%;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   justify-items: center;
   align-items: center;
+  grid-gap: 15px;
 
   a {
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
   }
 }
 
 .quiz-button {
+  padding: 0;
+  margin: 0;
   height: 100%;
   width: 100%;
   font-family: $roboto;
@@ -48,7 +52,7 @@
 
 @media screen and (max-width: 680px) {
   .instructions {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .quiz-button-container {
@@ -58,7 +62,7 @@
   .quiz-button,
   a {
     font-size: 30px;
-    height: 90%;
+    height: 100%;
     width: 100%;
     margin: 0;
   }
