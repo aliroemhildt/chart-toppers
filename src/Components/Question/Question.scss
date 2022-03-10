@@ -5,7 +5,7 @@
   @include flex(column, center, center);
 }
 
-.answers-container {
+.question-cards-container {
   @include flex(row, center, center);
   width: 100%;
 }
@@ -16,6 +16,14 @@
     color: black;
     font-size: 25px;
     margin: 25px;
+}
+
+.question-song-card {
+  background-color: $off-white;
+    border: 2px solid black;
+    margin: 10px;
+    width: 60%;
+    height: 400px;
 }
 
 @media screen and (max-width: 680px) {

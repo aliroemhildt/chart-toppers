@@ -8,9 +8,7 @@ const Header = () => {
         <p className='tagline'>Put your music knowledge to the test...</p>
       </div>
       <div className='title-container'>
-        <Link className='home-link' to='/'>
-          <h1 className='page-title'>CHART TOPPERS</h1>
-        </Link>
+        <Link className='home-link' to='/'>CHART TOPPERS</Link>
       </div>
     </header>
   )
