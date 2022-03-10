@@ -2,14 +2,12 @@
 @import '../../styles/variables';
 
 .error-container {
-  height: 70%;
-  margin:50px;
+  height: calc(70% - 50px);
+  padding: 50px;
 
-  p,
-  a {
+  p {
     font-family: $roboto;
     font-size: 20px;
+    font-weight: 300;
   }
-  
-  font-weight: 300;
 }

@@ -1,4 +1,5 @@
 @import './styles/mixins';
+@import './styles/variables';
 
 .app {
   height: 100vh;
@@ -12,7 +13,6 @@ header {
 }
 
 main {
-//  height: 70%;
  width: 100%;
  @include flex(row, center, center)
 }
@@ -20,5 +20,16 @@ main {
 footer {
   height: 10%;
   width: 100%;
+}
+
+.loading-container {
+  height: calc(70% - 50px);
+}
+
+.loading-message {
+  font-family: $roboto;
+  font-size: 25px;
+  margin-top: 50px;
+  font-weight: 300;
 }
 
