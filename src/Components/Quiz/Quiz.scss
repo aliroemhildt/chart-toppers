@@ -4,12 +4,14 @@
 .question-container {
   height: 70%;
   width: 100%;
-  @include flex(column, center, center);
+  @include flex(column, start, center);
 }
 
 .results-container {
   width: 100%;
-  @include flex(column, center, center);
+  height: 70%;
+  overflow: auto;
+  @include flex(column, start, center);
 
   .score {
     font-family: $archivo;
