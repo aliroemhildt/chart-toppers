@@ -20,7 +20,7 @@
     margin: 30px;
   }
 
-  .answer-columns {
+  .results-columns {
     @include flex(row, center, start);
     width: 100%;
 
@@ -78,7 +78,7 @@
   }
 }
 
-.song-card {
+.results-song-card {
   @include flex(column, start, start);
   background-color: $off-white;
   border: 2px solid black;
@@ -115,11 +115,18 @@
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1000px) {
   .question-container {
-    height: auto;
+    height: 80%;
     width: 100%;
   }
+}
+
+@media screen and (max-width: 680px) {
+  // .question-container {
+  //   height: auto;
+  //   width: 100%;
+  // }
 
   .song-card {
     background-color: $off-white;

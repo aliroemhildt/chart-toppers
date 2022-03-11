@@ -3,7 +3,6 @@
 
 footer {
   @include flex(column, center, center);
-  // padding-top: 15px;
 }
 
 .created-by {
@@ -24,4 +23,14 @@ footer {
   color: $dark-blue;
   font-size: 14px;
   margin: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+  .created-by {
+    font-size: 16px;
+  }
+
+  .footer-link {
+    font-size: 12px;
+  }
 }

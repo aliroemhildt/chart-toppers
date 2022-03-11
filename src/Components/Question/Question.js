@@ -21,8 +21,10 @@ const Question = ({ songs, year, handleClick }) => {
       return (
         <div className='question-song-card' id={song.id} key={song.id} onClick={() => handleClick(song)} >
           <img src={song.image_url} />
-          <p className='title'>{song.title}</p>
-          <p className='artist'>{song.artist}</p>
+          <div className='question-card-text'>
+            <p className='title'>{song.title}</p>
+            <p className='artist'>{song.artist}</p>
+          </div>
         </div>
       );
     });
