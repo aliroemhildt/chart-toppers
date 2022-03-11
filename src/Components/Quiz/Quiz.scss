@@ -9,8 +9,8 @@
 
 .results-container {
   width: 100%;
-  height: 70%;
-  overflow: auto;
+  height: auto;
+  // overflow: auto;
   @include flex(column, start, center);
 
   .score {
@@ -20,40 +20,43 @@
     margin: 30px;
   }
 
-  .results-columns {
+  .answer-cards-container {
     @include flex(row, center, start);
+  }
+
+  .guesses-container,
+  .correct-container {
+    @include flex(column, start, center);
+    width: 40%;
+  }
+
+  .single-card-container {
+    height: 20vh;
     width: 100%;
+  }
 
-    .guess-column,
-    .answer-column {
-      @include flex(column, center, center);
-      margin: 5px;
-      width: 30%
+  .years-container {
+    @include flex(column, start, center);
+    width: 15%;
+  }
+
+  .single-year-container {
+    height: 20vh;
+    @include flex(row, center, center);
+
+    p {
+      font-family: $roboto;
+      font-size: 30px;
+      font-weight: 700;
     }
+  }
 
-    .years-column {
-      @include flex(column, center, center);
-      margin: 5px;
-      width: 15%;
-    }
-
-    .column-title {
-      font-family: $archivo;
-      font-weight: 800;
-      font-size: 20px;
-      color: black;
-    }
-
-    .year-container {
-      height: 364px;
-      @include flex(row, center, center);
-
-      p {
-        font-family: $roboto;
-        font-size: 30px;
-        font-weight: 700;
-      }
-    }
+  .column-title {
+    font-family: $archivo;
+    font-weight: 800;
+    font-size: 20px;
+    color: black;
+    margin: 15px 0 15px 0;
   }
 
   .home-link {
@@ -62,14 +65,15 @@
   }
 
   .home-button {
-    margin: 40px;
+    margin: 30px;
     height: 50px;
     width: 200px;
-    background-color: $dark-blue;
-    border: 2px solid black;
-    font-family: $roboto;
+    background-color: black;
+    border: none;
+    font-family: $archivo;
     font-size: 30px;
-    color: $off-white;
+    font-weight: 700;
+    color: $blue;
 
     &:hover {
       cursor: pointer;
@@ -79,16 +83,21 @@
 }
 
 .results-song-card {
-  @include flex(column, start, start);
+  @include flex(row, start, start);
   background-color: $off-white;
   border: 2px solid black;
   margin: 10px;
-  height: 340px;
-  width: 70%;
+  height: 90%;
+  width: 90%;
+
+  .result-card-text {
+    height: 100%;
+    @include flex(column, center, start);
+  }
 
   img {
-    width: calc(100% - 20px);
-    height: auto;
+    height: calc(100% - 20px);
+    width: auto;
     margin: 10px;
   }
 
@@ -109,17 +118,18 @@
     // min-height: 40px;
   }
 
-  &:hover {
-    cursor: pointer;
-    background-color: $white-hover;
-  }
+  // &:hover {
+  //   cursor: pointer;
+  //   background-color: $white-hover;
+  // }
 }
 
 @media screen and (max-width: 1000px) {
-  .question-container {
-    height: 80%;
-    width: 100%;
-  }
+  // .question-container,
+  // .results-container {
+  //   height: 80%;
+  //   width: 100%;
+  // }
 }
 
 @media screen and (max-width: 680px) {
@@ -128,18 +138,18 @@
   //   width: 100%;
   // }
 
-  .song-card {
-    background-color: $off-white;
-    border: 2px solid black;
-    margin: 10px;
-    width: 60%;
-    height: 400px;
+  // .song-card {
+  //   background-color: $off-white;
+  //   border: 2px solid black;
+  //   margin: 10px;
+  //   width: 60%;
+  //   height: 400px;
 
-    p {
-      font-size: 14px !important;
-    }
+  //   p {
+  //     font-size: 14px !important;
+  //   }
 
-  }
+  // }
 
   .column-title {
     font-size: 14px !important;

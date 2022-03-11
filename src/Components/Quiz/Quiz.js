@@ -65,10 +65,14 @@ const Quiz = ({ songData }) => {
     const keys = Object.keys(songs);
     return keys.map(key => {
       return (
-        <div className='song-card' key={songs[key].id}>
-          <img src={songs[key].image_url} />
-          <p className='title'>{songs[key].title}</p>
-          <p className='artist'>{songs[key].artist}</p>
+        <div className='single-card-container'>
+          <div className='results-song-card' key={songs[key].id}>
+            <img src={songs[key].image_url} />
+            <div className='result-card-text'>
+              <p className='title'>{songs[key].title}</p>
+              <p className='artist'>{songs[key].artist}</p>
+            </div>
+          </div>
         </div>
       );
     });
@@ -78,7 +82,7 @@ const Quiz = ({ songData }) => {
     const years = Object.keys(correctAnswers);
     return years.map(year => {
       return (
-        <div className ='year-container' key={year}>
+        <div className ='single-year-container' key={year}>
           <p>{year}</p>
         </div>
       )
@@ -105,22 +109,22 @@ const Quiz = ({ songData }) => {
     return (
       <div className='results-container'>
         <p className='score'>SCORE: {score}/{allSongs.length}</p>
-        <div className='answer-columns'>
-          <div className='years-column'>
+        <div className='answer-cards-container'>
+          <div className='years-container'>
             <p className='column-title'>YEAR:</p>
             {renderYears()}
           </div>
-          <div className='guess-column'>
+          <div className='guesses-container'>
             <p className='column-title'>YOUR GUESS:</p>
             {renderCards(playerAnswers)}
           </div>
-          <div className='answer-column'>
+          <div className='correct-container'>
             <p className='column-title'>ANSWER:</p>
             {renderCards(correctAnswers)}
           </div>
         </div>
         <Link className='home-link' to='/'>
-          <button className='home-button'>Home</button>
+          <button className='home-button'>HOME</button>
         </Link>
       </div>
     )

@@ -9,7 +9,7 @@
 }
 
 header {
-  height: 20%;
+  min-height: 20vh;
   width: 100%;
 }
 
@@ -19,7 +19,7 @@ main {
 }
 
 footer {
-  height: 10%;
+  min-height: 10vh;
   width: 100%;
 }
 
@@ -35,8 +35,8 @@ footer {
 }
 
 @media screen and (max-width: 1000px) {
-  header {
-    height: 10%;
-  }
+  // header {
+  //   height: 10%;
+  // }
 }
 
