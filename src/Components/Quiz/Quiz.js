@@ -7,9 +7,9 @@ import './Quiz.scss';
 
 const Quiz = ({ songData }) => {
   const { decade } = useParams();
-  const [questionCount, setQuestionCount] = useState(0);
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [allSongs, setAllSongs] = useState(songData[decade]);
-  const [score, setScore] = useState({});
+  const [score, setScore] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState({});
   const [playerAnswers, setPlayerAnswers] = useState({});
   const [error, setError] = useState('');
@@ -27,6 +27,13 @@ const Quiz = ({ songData }) => {
     }
   }
 
+  useEffect(() => {
+    console.log(playerAnswers)
+    if (questionIndex === allSongs.length) {
+      calculateScore();
+    }
+  }, [playerAnswers])
+
   const getCorrectAnswers = () => {
     const allCorrectAnswers = allSongs.reduce((acc, item) => {
       const year = Object.keys(item)[0];
@@ -40,25 +47,24 @@ const Quiz = ({ songData }) => {
     setCorrectAnswers(allCorrectAnswers);
   }
 
-  const updateScore = () => {
-    let newScore = 0;
-    const keys = Object.keys(playerAnswers);
-    keys.forEach(key => {
+  const calculateScore = () => {
+    const keys = Object.keys(correctAnswers);
+    const finalScore = keys.reduce((acc, key) => {
       if (playerAnswers[key].id === correctAnswers[key].id) {
-        newScore += 1;
+        acc++;
       }
-    });
-    setScore(newScore);
+      return acc;
+    }, 0);
+    setScore(finalScore);
   }
 
   const handleClick = (song) => {
-    const year = Object.keys(allSongs[questionCount])[0];
+    const year = Object.keys(allSongs[questionIndex])[0];
     setPlayerAnswers({
       ...playerAnswers,
       [year]: song
     });
-    setQuestionCount(questionCount + 1);
-    updateScore();
+    setQuestionIndex(questionIndex + 1);
   }
 
   const renderCards = (songs) => {
@@ -95,17 +101,17 @@ const Quiz = ({ songData }) => {
     return (
       <Error error={'Oops! Looks like this page doesn\'t exist.'} />
     )
-  } else if (questionCount < allSongs.length) {
+  } else if (questionIndex < allSongs.length) {
     return (
       <div className='question-container'>
         <Question
-          songs={allSongs[questionCount]}
-          year={Object.keys(allSongs[questionCount])[0]}
+          songs={allSongs[questionIndex]}
+          year={Object.keys(allSongs[questionIndex])[0]}
           handleClick={handleClick}
         />
       </div>
     )
-  } else if (questionCount === allSongs.length) {
+  } else if (questionIndex === allSongs.length) {
     return (
       <div className='results-container'>
         <p className='score'>SCORE: {score}/{allSongs.length}</p>
