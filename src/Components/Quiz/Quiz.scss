@@ -157,7 +157,14 @@
     width: 100%;
   }
 
-  .single-year-container,
+  .single-year-container {
+    height: 40vh;
+    
+    p {
+      font-size: 20px;
+    }
+  }
+
   .single-card-container {
     height: 40vh;
   }
