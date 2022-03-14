@@ -29,9 +29,10 @@ const App = () => {
   return (
     <div className='app'>
       <Header />
-      {/* <main> */}
       { (isLoading && !error) &&
-        <p>Loading... please wait!</p>
+        <div className='loading-container'>
+          <p className='loading-message'>Loading... please wait!</p>
+        </div>
       }
       { !isLoading &&
         <>
@@ -45,7 +46,6 @@ const App = () => {
         </>
       }
       {error && <Error error={error} />}
-      {/* </main> */}
       <Footer />
     </div>
   );

@@ -6,7 +6,7 @@ const Question = ({ songs, year, handleClick }) => {
     return list.sort(() => Math.random() - 0.5);
   }
 
-  const answers = [
+  const answerOptions = [
     songs[year].song1,
     songs[year].song2,
     songs[year].song3,
@@ -14,23 +14,27 @@ const Question = ({ songs, year, handleClick }) => {
     songs[year].song5
   ];
 
-  const shuffledAnswers = shuffle(answers);
+  const shuffledAnswers = shuffle(answerOptions);
 
   const songCards =
     shuffledAnswers.map(song => {
       return (
-        <div className='song-card' id={song.id} key={song.id} onClick={() => handleClick(song)} >
+        <div className='question-song-card' id={song.id} key={song.id} onClick={() => handleClick(song)} >
           <img src={song.image_url} />
-          <p className='title'>{song.title}</p>
-          <p className='artist'>{song.artist}</p>
+          <div className='question-card-text'>
+            <p className='title'>{song.title}</p>
+            <p className='artist'>{song.artist}</p>
+          </div>
         </div>
       );
     });
 
   return (
     <>
-      <p className='question-text'>Which song was the Billboard #1 hit in {year}?</p>
-      <div className='answers-container'>
+      <div className='question-text-container'>
+        <p className='question-text'>Which song was the Billboard #1 hit in {year}?</p>
+      </div>
+      <div className='question-cards-container'>
         { songCards }
       </div>
     </>

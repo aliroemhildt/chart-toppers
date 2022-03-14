@@ -4,89 +4,102 @@
 .question-container {
   height: 70%;
   width: 100%;
-  @include flex(column, center, center);
+  @include flex(column, start, center);
 }
 
 .results-container {
   width: 100%;
-  @include flex(column, center, center);
+  height: auto;
+  @include flex(column, start, center);
+}
 
-  .score {
-    font-family: $archivo;
-    font-weight: 700;
-    font-size: 30px;
-    margin: 30px;
-  }
+.score {
+  font-family: $archivo;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 30px;
+}
 
-  .answer-columns {
-    @include flex(row, center, start);
-    width: 100%;
+.answer-cards-container {
+  @include flex(row, center, start);
+  width: 90%;
+}
 
-    .guess-column,
-    .answer-column {
-      @include flex(column, center, center);
-      margin: 5px;
-      width: 30%
-    }
+.guesses-container,
+.correct-container {
+  @include flex(column, start, center);
+  width: 40%;
+}
 
-    .years-column {
-      @include flex(column, center, center);
-      margin: 5px;
-      width: 15%;
-    }
+.single-card-container {
+  @include flex(row, center, center);
+  height: 20vh;
+  width: 100%;
+}
 
-    .column-title {
-      font-family: $archivo;
-      font-weight: 800;
-      font-size: 20px;
-      color: black;
-    }
+.years-container {
+  @include flex(column, start, center);
+  width: 15%;
+}
 
-    .year-container {
-      height: 344px;
-      @include flex(row, center, center);
+.single-year-container {
+  height: 20vh;
+  width: 100%;
+  @include flex(row, center, center);
 
-      p {
-        font-family: $roboto;
-        font-size: 30px;
-        font-weight: 700;
-      }
-    }
-  }
-
-  .home-link {
-    @include flex(row, center, center);
-    width: 100%;
-  }
-
-  .home-button {
-    margin: 40px;
-    height: 50px;
-    width: 200px;
-    background-color: $dark-blue;
-    border: 2px solid black;
+  p {
     font-family: $roboto;
     font-size: 30px;
-    color: $off-white;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $dark-blue-hover;
-    }
+    font-weight: 700;
   }
 }
 
-.song-card {
-  @include flex(column, start, start);
+.column-title {
+  font-family: $archivo;
+  font-weight: 800;
+  font-size: 20px;
+  color: black;
+  margin: 15px 0 15px 0;
+}
+
+.home-link {
+  @include flex(row, center, center);
+  width: 100%;
+}
+
+.home-button {
+  margin: 30px;
+  height: 50px;
+  width: 200px;
+  background-color: black;
+  border: none;
+  font-family: $archivo;
+  font-size: 30px;
+  font-weight: 700;
+  color: $blue;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $dark-blue-hover;
+  }
+}
+
+.results-song-card {
+  @include flex(row, start, start);
   background-color: $off-white;
   border: 2px solid black;
   margin: 10px;
-  height: 320px;
-  width: 70%;
+  height: 90%;
+  width: 90%;
+
+  .result-card-text {
+    height: 100%;
+    @include flex(column, center, start);
+  }
 
   img {
-    width: calc(100% - 20px);
-    height: auto;
+    height: calc(100% - 20px);
+    width: auto;
     margin: 10px;
   }
 
@@ -96,7 +109,6 @@
     font-size: 16px;
     font-weight: 400;
     margin: 10px;
-    min-height: 40px;
   }
 
   .artist {
@@ -104,48 +116,69 @@
     color: $dark-blue;
     font-size: 16px;
     margin: 10px;
-    min-height: 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .single-year-container,
+  .single-card-container {
+    height: 50vh;
   }
 
-  &:hover {
-    cursor: pointer;
-    background-color: $white-hover;
+  .results-song-card {
+    @include flex(column, center, center);
+    width: 80%;
+
+    img {
+      width: calc(100% - 20px);
+      height: auto;
+      margin: 10px;
+    }
+
+    .title {
+      font-size: 14px;
+      margin: 10px 10px 5px 10px;
+    }
+
+    .artist { 
+      font-size: 12px;
+      margin: 5px 10px 10px 10px;
+    }
+
+    .result-card-text {
+      @include flex(column, start, start);
+      width: 100%;
+    }
   }
 }
 
 @media screen and (max-width: 680px) {
-  .question-container {
-    height: auto;
+  .answer-cards-container {
     width: 100%;
   }
 
-  .song-card {
-    background-color: $off-white;
-    border: 2px solid black;
-    margin: 10px;
-    width: 60%;
-    height: 400px;
-
+  .single-year-container {
+    height: 40vh;
+    
     p {
-      font-size: 14px !important;
+      font-size: 20px;
     }
+  }
 
+  .single-card-container {
+    height: 40vh;
+  }
+
+  .guesses-container,
+  .correct-container {
+    width: 45%;
+  }
+
+  .years-container {
+    width: 15%;
   }
 
   .column-title {
-    font-size: 14px !important;
+    font-size: 18px;
   }
-
-  .guess-column,
-  .answer-column {
-    width: 40% !important;
-  }
-
-  .year-container {
-    height: 424px !important;  
-
-    p {
-      font-size: 18px !important;
-    }
-  } 
 }

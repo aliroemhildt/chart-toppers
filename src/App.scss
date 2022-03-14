@@ -1,24 +1,36 @@
 @import './styles/mixins';
+@import './styles/variables';
 
 .app {
   height: 100vh;
   width: 100vw;
-  @include flex(column, flex-start, center);
+  min-width: 380px;
+  @include flex(column, start, center);
 }
 
 header {
-  height: 20%;
+  min-height: 20vh;
   width: 100%;
 }
 
 main {
-//  height: 70%;
  width: 100%;
  @include flex(row, center, center)
 }
 
 footer {
-  height: 10%;
+  min-height: 10vh;
   width: 100%;
+}
+
+.loading-container {
+  height: calc(70% - 50px);
+}
+
+.loading-message {
+  font-family: $roboto;
+  font-size: 25px;
+  margin-top: 50px;
+  font-weight: 300;
 }
 

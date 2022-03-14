@@ -8,7 +8,7 @@ header {
 }
 
 .tagline-container {
-  height: 25%;
+  height: 35%;
   width: 100%;
   background-color: black;
   @include flex(column, center, center);
@@ -19,40 +19,40 @@ header {
   font-family: $roboto;
   font-size: 20px;
   font-weight: 200;
-  padding: 15px;
 }
 
 .home-link {
   text-decoration: none;
+  font-family: $archivo;
+  font-weight: 800;
+  font-size: 80px;
   color: black;
 }
 
 .title-container {
-  height: 75%;
+  height: 65%;
   width: 100%;
   @include flex(row, center, center);
 }
 
-.page-title {
-  font-family: $archivo;
-  font-weight: 800;
-  font-size: 80px;
-  margin: 20px;
-}
+@media screen and (max-width: 1000px) {
+  .home-link {
+    font-size: 60px;
+  }
 
-@media screen and (max-width: 800px) {
-  .page-title {
-    font-size: 50px;
+  .tagline {
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 680px) {
-  .page-title {
-    font-size: 40px;
+  .home-link {
+    font-size: 35px;
     text-align: center;
+    vertical-align: middle;
   }
 
   .tagline {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
