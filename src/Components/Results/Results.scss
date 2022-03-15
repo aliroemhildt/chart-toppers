@@ -52,7 +52,7 @@
   font-family: $archivo;
   font-weight: 800;
   font-size: 20px;
-  color: black;
+  color: $black;
   margin: 15px 0 15px 0;
 }
 
@@ -60,7 +60,7 @@
   margin: 30px;
   height: 50px;
   width: 200px;
-  background-color: black;
+  background-color: $black;
   border: none;
   font-family: $archivo;
   font-size: 30px;
@@ -81,7 +81,7 @@
 .results-song-card {
   @include flex(row, start, start);
   background-color: $white-hover;
-  border: 2px solid black;
+  border: 2px solid $black;
   margin: 10px;
   height: 90%;
   width: 90%;
@@ -99,7 +99,7 @@
 
   .title {
     font-family: $roboto;
-    color: black;
+    color: $black;
     font-size: 16px;
     font-weight: 400;
     margin: 10px;
