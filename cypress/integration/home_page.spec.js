@@ -3,7 +3,7 @@ describe('Home Page', () => {
     cy.intercept('GET', 'https://chart-toppers-api.herokuapp.com/api/v1/songs', { fixture: 'sampleSongData.json' })
       .visit('http://localhost:3000')
 
-      .get('.page-title').contains('CHART TOPPERS')
+      .get('.home-link').contains('CHART TOPPERS')
       .get('.quiz-button').should('have.text', '1980\'s1990\'s2000\'s2010\'s')
       .get('footer > p').contains('Created by Ali Roemhildt')
       .get('.linkedin').should('have.attr', 'href', 'https://www.linkedin.com/in/aliroemhildt/')
