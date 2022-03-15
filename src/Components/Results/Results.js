@@ -3,16 +3,47 @@ import { Link } from 'react-router-dom';
 import './Results.scss';
 
 const Results = ({ score, correctAnswers, playerAnswers }) => {
-  const renderCards = (songs) => {
-    const keys = Object.keys(songs);
+  const renderPlayerCards = () => {
+    const keys = Object.keys(playerAnswers);
+    return keys.map(key => {
+      if (playerAnswers[key].id === correctAnswers[key].id) {
+        return (
+          <div className='single-card-container' key={playerAnswers[key].id}>
+            <div className='results-song-card correct'>
+              <img src={playerAnswers[key].image_url} />
+              <div className='result-card-text'>
+                <p className='title'>{playerAnswers[key].title}</p>
+                <p className='artist'>{playerAnswers[key].artist}</p>
+              </div>
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div className='single-card-container' key={playerAnswers[key].id}>
+            <div className='results-song-card'>
+              <img src={playerAnswers[key].image_url} />
+              <div className='result-card-text'>
+                <p className='title'>{playerAnswers[key].title}</p>
+                <p className='artist'>{playerAnswers[key].artist}</p>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    });
+  }
+
+  const renderAnswerCards = () => {
+    const keys = Object.keys(correctAnswers);
     return keys.map(key => {
       return (
-        <div className='single-card-container' key={songs[key].id}>
-          <div className='results-song-card'>
-            <img src={songs[key].image_url} />
+        <div className='single-card-container' key={correctAnswers[key].id}>
+          <div className='results-song-card answer'>
+            <img src={correctAnswers[key].image_url} />
             <div className='result-card-text'>
-              <p className='title'>{songs[key].title}</p>
-              <p className='artist'>{songs[key].artist}</p>
+              <p className='title'>{correctAnswers[key].title}</p>
+              <p className='artist'>{correctAnswers[key].artist}</p>
             </div>
           </div>
         </div>
@@ -33,8 +64,8 @@ const Results = ({ score, correctAnswers, playerAnswers }) => {
 
   const total = Object.keys(correctAnswers).length;
   const years = renderYears();
-  const playerCards = renderCards(playerAnswers);
-  const answerCards = renderCards(correctAnswers);
+  const playerCards = renderPlayerCards();
+  const answerCards = renderAnswerCards();
 
   return (
     <div className='results-container'>

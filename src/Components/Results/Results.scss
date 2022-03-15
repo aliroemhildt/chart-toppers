@@ -80,7 +80,7 @@
 
 .results-song-card {
   @include flex(row, start, start);
-  background-color: $off-white;
+  background-color: $white-hover;
   border: 2px solid black;
   margin: 10px;
   height: 90%;
@@ -110,6 +110,22 @@
     color: $dark-blue;
     font-size: 16px;
     margin: 10px;
+  }
+}
+
+.answer {
+  background-color: $off-white;
+}
+
+.correct {
+  background-color: $dark-blue;
+  
+  .title {
+    color: $off-white;
+  }
+
+  .artist {
+    color: $blue;
   }
 }
 
