@@ -20,7 +20,7 @@ const Question = ({ songs, year, handleClick }) => {
     shuffledAnswers.map(song => {
       return (
         <div className='question-song-card' id={song.id} key={song.id} onClick={() => handleClick(song)} >
-          <img src={song.image_url} />
+          <img src={song.image_url} alt={`${song.title} cover`}/>
           <div className='question-card-text'>
             <p className='title'>{song.title}</p>
             <p className='artist'>{song.artist}</p>

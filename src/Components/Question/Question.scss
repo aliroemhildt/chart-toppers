@@ -4,7 +4,7 @@
 .question-container {
   height: 70%;
   width: 100%;
-  @include flex(column, start, center);
+  @include flex(column, flex-start, center);
 }
 
 .question-text-container {
@@ -24,13 +24,13 @@
 }
 
 .question-cards-container {
-  @include flex(row, center, start);
+  @include flex(row, center, flex-start);
   width: 90%;
   height: 80%;
 }
 
 .question-song-card {
-  @include flex(column, start, start);
+  @include flex(column, flex-start, flex-start);
   background-color: $off-white;
   border: 2px solid $black;
   margin: 10px;
@@ -80,7 +80,7 @@
   }
 
   .question-song-card {
-    @include flex(row, start, center);
+    @include flex(row, flex-start, center);
     background-color: $off-white;
     border: 2px solid $black;
     margin: 0;

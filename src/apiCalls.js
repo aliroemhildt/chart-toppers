@@ -2,11 +2,11 @@ import { cleanData } from './utilities';
 
 const handleError = (response) => {
   if (response.status === 404) {
-    throw `${response.status}. Oops! Looks like this page doesn't exist.`;
+    throw new Error(`${response.status}. Oops! Looks like this page doesn't exist.`);
   } else if (!response.ok && response.status >= 400 && response.status < 500) {
-    throw `${response.status}. Something went wrong... please reload the page and try again!`;
+    throw new Error(`${response.status}. Something went wrong... please reload the page and try again!`);
   } else if (!response.ok && response.status >= 500) {
-    throw `${response.status}. Sorry, looks like we're having some trouble on our end. We're working on it... please come back later!`;
+    throw new Error(`${response.status}. Sorry, looks like we're having some trouble on our end. We're working on it... please come back later!`);
   } else {
     return response.json();
   }
