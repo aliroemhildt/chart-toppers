@@ -8,7 +8,7 @@ import Results from '../Results/Results';
 const Quiz = ({ songData }) => {
   const { decade } = useParams();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [allSongs, setAllSongs] = useState({});
+  const [allSongs, setAllSongs] = useState([]);
   const [score, setScore] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState({});
   const [playerAnswers, setPlayerAnswers] = useState({});
@@ -22,7 +22,13 @@ const Quiz = ({ songData }) => {
     if (!error && questionIndex === allSongs.length) {
       calculateScore();
     }
-  }, [playerAnswers])
+  }, [playerAnswers]);
+
+  useEffect(() => {
+    if (allSongs.length > 0) {
+      getCorrectAnswers();
+    }
+  }, [allSongs]);
 
   const checkParams = () => {
     const validDecades = ['1980s', '1990s', '2000s', '2010s'];
@@ -30,7 +36,6 @@ const Quiz = ({ songData }) => {
       setError('Oops! Looks like this page doesn\'t exist.')
     } else {
       setAllSongs(songData[decade]);
-      getCorrectAnswers();
     }
   }
 

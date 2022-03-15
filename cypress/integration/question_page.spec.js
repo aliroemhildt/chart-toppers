@@ -36,17 +36,17 @@ describe('Question Page', () => {
 
       .get('.score').contains('SCORE: 1/2')
 
-      .get('.years-column').find('.column-title').contains('YEAR:')
-      .get('.years-column').find('.year-container').eq(0).contains('2010')
-      .get('.years-column').find('.year-container').eq(1).contains('2011')
+      .get('.years-container').find('.column-title').contains('YEAR:')
+      .get('.years-container').find('.single-year-container').eq(0).contains('2010')
+      .get('.years-container').find('.single-year-container').eq(1).contains('2011')
 
-      .get('.guess-column').find('.column-title').contains('YOUR GUESS:')
-      .get('.guess-column').find('.song-card').eq(0).contains('Tik Tok')
-      .get('.guess-column').find('.song-card').eq(1).contains('Party Rock Anthem')
+      .get('.guesses-container').find('.column-title').contains('YOUR GUESS:')
+      .get('.guesses-container').find('.results-song-card').eq(0).contains('Tik Tok')
+      .get('.guesses-container').find('.results-song-card').eq(1).contains('Party Rock Anthem')
 
-      .get('.answer-column').find('.column-title').contains('ANSWER:')
-      .get('.answer-column').find('.song-card').eq(0).contains('Tik Tok')
-      .get('.answer-column').find('.song-card').eq(1).contains('Rolling In The Deep')
+      .get('.correct-container').find('.column-title').contains('ANSWER:')
+      .get('.correct-container').find('.results-song-card').eq(0).contains('Tik Tok')
+      .get('.correct-container').find('.results-song-card').eq(1).contains('Rolling In The Deep')
 
       .get('.results-container').find('a:first').should('have.attr', 'href', '/')
   });
