@@ -4,7 +4,7 @@
 .results-container {
   width: 100%;
   height: auto;
-  @include flex(column, start, center);
+  @include flex(column, flex-start, center);
 }
 
 .score {
@@ -15,18 +15,18 @@
 }
 
 .answer-cards-container {
-  @include flex(row, center, start);
+  @include flex(row, center, flex-start);
   width: 90%;
 }
 
 .guesses-container,
 .correct-container {
-  @include flex(column, start, center);
+  @include flex(column, flex-start, center);
   width: 40%;
 }
 
 .years-container {
-  @include flex(column, start, center);
+  @include flex(column, flex-start, center);
   width: 15%;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .results-song-card {
-  @include flex(row, start, start);
+  @include flex(row, flex-start, flex-start);
   background-color: $white-hover;
   border: 2px solid $black;
   margin: 10px;
@@ -88,7 +88,7 @@
 
   .result-card-text {
     height: 100%;
-    @include flex(column, center, start);
+    @include flex(column, center, flex-start);
   }
 
   img {
@@ -156,7 +156,7 @@
     }
 
     .result-card-text {
-      @include flex(column, start, start);
+      @include flex(column, flex-start, flex-start);
       width: 100%;
     }
   }
