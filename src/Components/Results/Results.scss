@@ -1,12 +1,6 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
-.question-container {
-  height: 70%;
-  width: 100%;
-  @include flex(column, start, center);
-}
-
 .results-container {
   width: 100%;
   height: auto;
@@ -31,12 +25,6 @@
   width: 40%;
 }
 
-.single-card-container {
-  @include flex(row, center, center);
-  height: 20vh;
-  width: 100%;
-}
-
 .years-container {
   @include flex(column, start, center);
   width: 15%;
@@ -54,17 +42,18 @@
   }
 }
 
+.single-card-container {
+  @include flex(row, center, center);
+  height: 20vh;
+  width: 100%;
+}
+
 .column-title {
   font-family: $archivo;
   font-weight: 800;
   font-size: 20px;
   color: black;
   margin: 15px 0 15px 0;
-}
-
-.home-link {
-  @include flex(row, center, center);
-  width: 100%;
 }
 
 .home-button {
@@ -82,6 +71,11 @@
     cursor: pointer;
     background-color: $dark-blue-hover;
   }
+}
+
+.home-link {
+  @include flex(row, center, center);
+  width: 100%;
 }
 
 .results-song-card {

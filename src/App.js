@@ -45,7 +45,7 @@ const App = () => {
           </Routes>
         </>
       }
-      {error && <Error error={error} />}
+      { error && <Error error={error} /> }
       <Footer />
     </div>
   );
