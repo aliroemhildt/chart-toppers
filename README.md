@@ -39,7 +39,7 @@ The deployed API can be found [here](https://chart-toppers-api.herokuapp.com/api
 
 The API repo can be found [here](https://github.com/aliroemhildt/chart-toppers-api)
 
-The data for this API was built using Express, and the data came directly from Billboard
+This API was built using Express and is deployed to Heroku. The data came directly from [Billboard](https://www.billboard.com/).
 
 ## Install and Setup
 
