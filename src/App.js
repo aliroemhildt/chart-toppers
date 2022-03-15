@@ -19,7 +19,7 @@ const App = () => {
         setSongData(data);
         setIsLoading(false);
       })
-      .catch(error => setError(error))
+      .catch(error => setError(error.message))
   }
 
   useEffect(() => {

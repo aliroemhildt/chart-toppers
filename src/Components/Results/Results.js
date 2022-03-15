@@ -10,7 +10,7 @@ const Results = ({ score, correctAnswers, playerAnswers }) => {
         return (
           <div className='single-card-container' key={playerAnswers[key].id}>
             <div className='results-song-card correct'>
-              <img src={playerAnswers[key].image_url} />
+              <img src={playerAnswers[key].image_url} alt={`${playerAnswers[key].title} cover`} />
               <div className='result-card-text'>
                 <p className='title'>{playerAnswers[key].title}</p>
                 <p className='artist'>{playerAnswers[key].artist}</p>
@@ -22,7 +22,7 @@ const Results = ({ score, correctAnswers, playerAnswers }) => {
         return (
           <div className='single-card-container' key={playerAnswers[key].id}>
             <div className='results-song-card'>
-              <img src={playerAnswers[key].image_url} />
+              <img src={playerAnswers[key].image_url} alt={`${playerAnswers[key].title} cover`} />
               <div className='result-card-text'>
                 <p className='title'>{playerAnswers[key].title}</p>
                 <p className='artist'>{playerAnswers[key].artist}</p>
@@ -40,7 +40,7 @@ const Results = ({ score, correctAnswers, playerAnswers }) => {
       return (
         <div className='single-card-container' key={correctAnswers[key].id}>
           <div className='results-song-card answer'>
-            <img src={correctAnswers[key].image_url} />
+            <img src={correctAnswers[key].image_url} alt={`${correctAnswers[key].title} cover`} />
             <div className='result-card-text'>
               <p className='title'>{correctAnswers[key].title}</p>
               <p className='artist'>{correctAnswers[key].artist}</p>

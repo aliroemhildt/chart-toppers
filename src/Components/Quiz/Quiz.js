@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { shape, objectOf, arrayOf, number, string } from 'prop-types';
 import Question from '../Question/Question';
 import Error from '../Error/Error';
