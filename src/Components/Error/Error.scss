@@ -4,10 +4,13 @@
 .error-container {
   height: calc(70% - 50px);
   padding: 50px;
+  @include flex(column, start, center);
+}
 
-  p {
-    font-family: $roboto;
-    font-size: 20px;
-    font-weight: 300;
-  }
+.error-message,
+.error-link {
+  font-family: $roboto;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 10px;
 }

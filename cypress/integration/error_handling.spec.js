@@ -29,7 +29,8 @@ describe('Error Handling', () => {
   });
 
   it('Should handle incorrect URLs', () => {
-    cy.visit('http://localhost:3000/test')
+    cy.intercept('GET', 'https://chart-toppers-api.herokuapp.com/api/v1/songs', { fixture: 'sampleSongData.json' })
+      .visit('http://localhost:3000/test')
 
     cy.get('header').should('have.text', 'Put your music knowledge to the test...CHART TOPPERS')
       .get('footer').should('have.text', 'Created by Ali RoemhildtLinkedInGitHub')

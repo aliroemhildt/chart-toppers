@@ -8,7 +8,7 @@ import Results from '../Results/Results';
 const Quiz = ({ songData }) => {
   const { decade } = useParams();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [allSongs, setAllSongs] = useState(songData[decade]);
+  const [allSongs, setAllSongs] = useState({});
   const [score, setScore] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState({});
   const [playerAnswers, setPlayerAnswers] = useState({});
@@ -19,7 +19,7 @@ const Quiz = ({ songData }) => {
   }, []);
 
   useEffect(() => {
-    if (questionIndex === allSongs.length) {
+    if (!error && questionIndex === allSongs.length) {
       calculateScore();
     }
   }, [playerAnswers])
@@ -29,6 +29,7 @@ const Quiz = ({ songData }) => {
     if (!validDecades.includes(decade)) {
       setError('Oops! Looks like this page doesn\'t exist.')
     } else {
+      setAllSongs(songData[decade]);
       getCorrectAnswers();
     }
   }
@@ -66,17 +67,17 @@ const Quiz = ({ songData }) => {
     setQuestionIndex(questionIndex + 1);
   }
 
-  const loading = (!allSongs && !error) &&
+  const loading = (!error && !allSongs) &&
     <p className='loading-message'>loading...</p>
   const errorMessage = error &&
     <Error error={'Oops! Looks like this page doesn\'t exist.'} />
-  const question = (questionIndex < allSongs.length) &&
+  const question = (!error && questionIndex < allSongs.length) &&
       <Question
         songs={allSongs[questionIndex]}
         year={Object.keys(allSongs[questionIndex])[0]}
         handleClick={handleClick}
       />
-  const results = (questionIndex === allSongs.length) &&
+  const results = (!error && questionIndex === allSongs.length) &&
     <Results
       score={score}
       correctAnswers={correctAnswers}
