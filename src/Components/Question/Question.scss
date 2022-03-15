@@ -16,7 +16,7 @@
 .question-text {
   font-family: $roboto;
   font-weight: 300;
-  color: black;
+  color: $black;
   font-size: 25px;
   margin: 25px;
   vertical-align: middle;
@@ -32,7 +32,7 @@
 .question-song-card {
   @include flex(column, start, start);
   background-color: $off-white;
-  border: 2px solid black;
+  border: 2px solid $black;
   margin: 10px;
   width: 20%;
   height: 85%;
@@ -45,7 +45,7 @@
 
   .title {
     font-family: $roboto;
-    color: black;
+    color: $black;
     font-size: 18px;
     font-weight: 400;
     margin: 15px 10px 15px 10px;
@@ -82,7 +82,7 @@
   .question-song-card {
     @include flex(row, start, center);
     background-color: $off-white;
-    border: 2px solid black;
+    border: 2px solid $black;
     margin: 0;
     width: 50%;
     height: 18%;
