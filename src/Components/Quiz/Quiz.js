@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { shape, objectOf, arrayOf, number, string } from 'prop-types';
 import Question from '../Question/Question';
 import Error from '../Error/Error';
-import './Quiz.scss';
+import Results from '../Results/Results';
 
 const Quiz = ({ songData }) => {
   const { decade } = useParams();
@@ -18,6 +18,12 @@ const Quiz = ({ songData }) => {
     checkParams();
   }, []);
 
+  useEffect(() => {
+    if (questionIndex === allSongs.length) {
+      calculateScore();
+    }
+  }, [playerAnswers])
+
   const checkParams = () => {
     const validDecades = ['1980s', '1990s', '2000s', '2010s'];
     if (!validDecades.includes(decade)) {
@@ -26,13 +32,6 @@ const Quiz = ({ songData }) => {
       getCorrectAnswers();
     }
   }
-
-  useEffect(() => {
-    console.log(playerAnswers)
-    if (questionIndex === allSongs.length) {
-      calculateScore();
-    }
-  }, [playerAnswers])
 
   const getCorrectAnswers = () => {
     const allCorrectAnswers = allSongs.reduce((acc, item) => {
@@ -67,74 +66,31 @@ const Quiz = ({ songData }) => {
     setQuestionIndex(questionIndex + 1);
   }
 
-  const renderCards = (songs) => {
-    const keys = Object.keys(songs);
-    return keys.map(key => {
-      return (
-        <div className='single-card-container'>
-          <div className='results-song-card' key={songs[key].id}>
-            <img src={songs[key].image_url} />
-            <div className='result-card-text'>
-              <p className='title'>{songs[key].title}</p>
-              <p className='artist'>{songs[key].artist}</p>
-            </div>
-          </div>
-        </div>
-      );
-    });
-  }
+  const loading = (!allSongs && !error) &&
+    <p className='loading-message'>loading...</p>
+  const errorMessage = error &&
+    <Error error={'Oops! Looks like this page doesn\'t exist.'} />
+  const question = (questionIndex < allSongs.length) &&
+      <Question
+        songs={allSongs[questionIndex]}
+        year={Object.keys(allSongs[questionIndex])[0]}
+        handleClick={handleClick}
+      />
+  const results = (questionIndex === allSongs.length) &&
+    <Results
+      score={score}
+      correctAnswers={correctAnswers}
+      playerAnswers={playerAnswers}
+    />
 
-  const renderYears = () => {
-    const years = Object.keys(correctAnswers);
-    return years.map(year => {
-      return (
-        <div className ='single-year-container' key={year}>
-          <p>{year}</p>
-        </div>
-      )
-    })
-  }
-
-  if (!allSongs && !error) {
-    return <p>loading...</p>
-   } else if (error) {
-    return (
-      <Error error={'Oops! Looks like this page doesn\'t exist.'} />
-    )
-  } else if (questionIndex < allSongs.length) {
-    return (
-      <div className='question-container'>
-        <Question
-          songs={allSongs[questionIndex]}
-          year={Object.keys(allSongs[questionIndex])[0]}
-          handleClick={handleClick}
-        />
-      </div>
-    )
-  } else if (questionIndex === allSongs.length) {
-    return (
-      <div className='results-container'>
-        <p className='score'>SCORE: {score}/{allSongs.length}</p>
-        <div className='answer-cards-container'>
-          <div className='years-container'>
-            <p className='column-title'>YEAR:</p>
-            {renderYears()}
-          </div>
-          <div className='guesses-container'>
-            <p className='column-title'>YOUR GUESS:</p>
-            {renderCards(playerAnswers)}
-          </div>
-          <div className='correct-container'>
-            <p className='column-title'>ANSWER:</p>
-            {renderCards(correctAnswers)}
-          </div>
-        </div>
-        <Link className='home-link' to='/'>
-          <button className='home-button'>HOME</button>
-        </Link>
-      </div>
-    )
-  }
+  return (
+    <>
+      {loading}
+      {errorMessage}
+      {question}
+      {results}
+    </>
+  );
 }
 
 Quiz.propTypes = {

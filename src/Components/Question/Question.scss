@@ -1,6 +1,12 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
+.question-container {
+  height: 70%;
+  width: 100%;
+  @include flex(column, start, center);
+}
+
 .question-text-container {
   @include flex(row, center, center);
   height: 20%;
@@ -115,5 +121,4 @@
   .question-text {
     font-size: 14px;
   }
- 
 }
