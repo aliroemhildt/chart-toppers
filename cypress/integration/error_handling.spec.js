@@ -43,5 +43,5 @@ describe('Error Handling', () => {
       .get('footer').should('have.text', 'Created by Ali RoemhildtLinkedInGitHub')
       .get('.error-message').should('have.text', 'Oops! Looks like this page doesn\'t exist.')
       .get('.error-link').should('have.attr', 'href', '/home').should('have.text', 'Take me to Chart Toppers home page')
-  })
+  });
 });
