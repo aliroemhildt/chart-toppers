@@ -1,11 +1,23 @@
 version: 2.1
-jobs:
-  build:
+orbs:
+  cypress: cypress-io/cypress@1
+executors:
+  with-chrome:
+    resource_class: small
     docker:
-      - image: cimg/node:17.2.0 # the primary container, where your job's commands are run
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - image: "cypress/browsers:node14.16.0-chrome90-ff88"
+workflows:
+  build:
+    jobs:
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+          executor: with-chrome
+          browser: chrome
+          post-steps:
+            - run: ls
+            - store_test_results:
+                path: cypress/results
+            - store_artifacts:
+                path: cypress/screenshots
