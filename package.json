@@ -17,7 +17,7 @@
     "start": "my-server -p 3000",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "start-server-and-test start http://localhost:3030 cy:run",
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
     "cy:run": "cypress run",
     "lint": "eslint ."
   },
