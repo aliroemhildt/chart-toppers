@@ -4,6 +4,6 @@ orbs:
 workflows:
   build:
     jobs:
-      - run:
-        command: npm test
+      - cypress/run:
+          start: npm test
         
